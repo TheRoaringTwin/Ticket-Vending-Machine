@@ -1,0 +1,237 @@
+.costing-container{
+
+    width:75%;
+    max-width:800px;
+    margin:110px auto 30px auto;
+    margin-top:140px;
+
+    padding:35px 40px;
+
+    border-radius:30px;
+
+    background:rgba(255,255,255,0.08);
+
+    backdrop-filter:blur(20px);
+    -webkit-backdrop-filter:blur(20px);
+
+    border:1px solid rgba(255,255,255,0.15);
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+
+    color:white;
+
+    box-shadow:0px 15px 40px rgba(0,0,0,.35);
+
+    position:relative;
+    z-index:10;
+
+}
+
+.costing-heading{
+    margin-top: 5px;
+    font-size:40px;
+
+    margin-bottom:5px;
+
+}
+
+.costing-subtitle{
+    margin-top: 3px;
+    opacity:.8;
+
+    margin-bottom:25px;
+
+}
+
+.journey-options{
+
+    display:flex;
+
+    gap:30px;
+
+    margin-bottom:25px;
+
+}
+
+.journey-btn{
+
+    width:220px;
+
+    height:70px;
+    margin-top: 20px;
+    border:none;
+
+    border-radius:50px;
+
+    background:rgba(255,255,255,.12);
+
+    color:white;
+
+    font-size:20px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.journey-btn:hover{
+
+    transform:translateY(-3px);
+
+}
+
+.journey-btn.selected{
+
+    background:#1d8fff;
+
+    box-shadow:
+
+    0 0 15px rgba(29,143,255,.5),
+
+    0 0 30px rgba(29,143,255,.3);
+
+}
+
+.passenger-section{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    gap:15px;
+
+    margin-bottom:20px;
+
+}
+
+.counter{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:30px;
+
+}
+
+.counter-btn{
+
+    width:60px;
+
+    height:60px;
+
+    border-radius:50%;
+
+    border:none;
+
+    background:#1d8fff;
+
+    color:white;
+
+    font-size:28px;
+
+    cursor:pointer;
+
+}
+
+.counter-value{
+
+    font-size:35px;
+
+    font-weight:700;
+
+    min-width:50px;
+
+    text-align:center;
+
+}
+
+.price-section{
+
+    width:100%;
+
+    text-align:center;
+
+    margin-bottom:20px;
+
+}
+
+.price-section p{
+
+    font-size:20px;
+
+    opacity:.8;
+
+}
+
+.price-section h2{
+
+    font-size:48px;
+
+    color:#45b3ff;
+
+    margin-top:10px;
+
+}
+
+.continue-wrapper{
+
+    width:100%;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    margin-top:15px;
+
+}
+
+.back-btn,
+.continue-btn{
+
+    width:180px;
+
+    height:60px;
+
+    border:none;
+
+    border-radius:50px;
+
+    cursor:pointer;
+
+    font-size:18px;
+
+    color:white;
+
+}
+
+.back-btn{
+
+    background:rgba(255,255,255,.15);
+
+}
+
+.continue-btn{
+
+    background:#1d8fff;
+
+}
+
+.language-area{
+
+    margin-top:40px;
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:20px;
+
+}
+

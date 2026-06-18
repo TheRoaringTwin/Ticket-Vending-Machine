@@ -1,0 +1,164 @@
+.processing-container {
+
+    width: 100%;
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 50px 30px;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 10;
+
+}
+
+.processing-card {
+
+    width: 600px;
+    max-width: 90%;
+
+    background: rgba(255,255,255,0.25);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    border: 1px solid rgba(255,255,255,0.4);
+
+    border-radius: 25px;
+
+    padding: 70px 40px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    box-shadow: 0 10px 35px rgba(0,0,0,0.15);
+
+}
+
+.loading-spinner {
+
+    width: 90px;
+    height: 90px;
+
+    border: 10px solid #dbeafe;
+    border-top: 10px solid #1d4ed8;
+
+    border-radius: 50%;
+
+    animation: spin 1s linear infinite;
+
+}
+
+.processing-title {
+
+    margin-top: 35px;
+
+    font-size: 2rem;
+
+    color: #0f172a;
+
+    font-weight: 700;
+
+}
+
+.processing-text {
+
+    margin-top: 20px;
+
+    font-size: 1.1rem;
+
+    color: #475569;
+
+    text-align: center;
+
+}
+
+.countdown-text {
+
+    margin-top: 25px;
+
+    font-size: 1rem;
+
+    color: #64748b;
+
+    text-align: center;
+
+}
+
+.back-btn {
+
+    margin-top: 30px;
+
+    padding: 12px 30px;
+
+    background: rgba(255, 255, 255, 0.9);
+
+    border: none;
+
+    border-radius: 8px;
+
+    font-size: 1rem;
+
+    font-weight: 600;
+
+    color: #1d4ed8;
+
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+
+    box-shadow: 0 4px 15px rgba(29, 78, 216, 0.2);
+
+}
+
+.back-btn:hover {
+
+    background: #ffffff;
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 6px 20px rgba(29, 78, 216, 0.3);
+
+}
+
+@keyframes spin {
+
+    0% {
+
+        transform: rotate(0deg);
+
+    }
+
+    100% {
+
+        transform: rotate(360deg);
+
+    }
+
+}
+
+@media (max-width:768px){
+
+    .processing-card{
+
+        padding:50px 25px;
+
+    }
+
+    .loading-spinner{
+
+        width:70px;
+        height:70px;
+
+    }
+
+    .processing-title{
+
+        font-size:1.6rem;
+
+    }
+
+}

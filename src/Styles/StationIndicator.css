@@ -1,0 +1,118 @@
+.station-indicator {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.indicator-container {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    position: relative;
+}
+
+.station-dot-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.station-dot {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 10px;
+    font-weight: bold;
+    background-color: transparent;
+    border: 2px solid;
+    box-shadow: none;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.current-station {
+    border-color: #22c55e;
+}
+
+.current-station:hover {
+    width: 24px;
+    height: 24px;
+}
+
+.selected-station {
+    border-color: #ef4444;
+}
+
+.selected-station:hover {
+    width: 24px;
+    height: 24px;
+}
+
+.connecting-line {
+    width: 80px;
+    height: 2px;
+    background: linear-gradient(90deg, #22c55e, #ef4444);
+    margin: 0 15px;
+    border-radius: 1px;
+    box-shadow: none;
+}
+
+.station-name-label {
+    font-size: 11px;
+    font-weight: 500;
+    color: #000000;
+    text-align: center;
+    white-space: nowrap;
+    max-width: 80px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+@media (max-width: 768px) {
+    .station-dot {
+        width: 16px;
+        height: 16px;
+    }
+
+    .connecting-line {
+        width: 50px;
+        margin: 0 10px;
+    }
+
+    .station-dot:hover {
+        width: 20px;
+        height: 20px;
+    }
+
+    .station-name-label {
+        font-size: 9px;
+        max-width: 60px;
+    }
+}
+
+@media (max-width: 480px) {
+    .station-dot {
+        width: 14px;
+        height: 14px;
+    }
+
+    .connecting-line {
+        width: 40px;
+        margin: 0 8px;
+    }
+
+    .station-dot:hover {
+        width: 18px;
+        height: 18px;
+    }
+
+    .station-name-label {
+        font-size: 8px;
+        max-width: 50px;
+    }
+}

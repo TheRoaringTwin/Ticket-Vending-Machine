@@ -1,0 +1,380 @@
+.invoice-container {
+    width: 100%;
+    max-width: 600px;
+    position: relative;
+    z-index: 10;
+    margin: 0 auto;
+    margin-bottom: 60px;
+    margin-left: 450px;
+}
+
+.invoice-main-wrapper {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    margin-top: 95px;
+    padding: 50px 20px;
+    box-sizing: border-box;
+    min-height: 100vh;
+    position: relative;
+    z-index: 10;
+}
+
+.invoice-back-button-wrapper {
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.invoice-back-btn {
+    padding: 12px 20px;
+    background: rgba(255, 215, 0, 0.1);
+    border: 2px solid rgba(255, 215, 0, 0.4);
+    border-radius: 10px;
+    color: #ffd700;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s ease;
+    white-space: nowrap;
+}
+
+.invoice-back-btn:hover {
+    background: rgba(255, 215, 0, 0.2);
+    transform: translateY(-2px);
+}
+
+.invoice-back-btn:active {
+    transform: scale(0.97);
+}
+
+.payment-options-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
+    padding: 30px;
+    background: rgba(25, 25, 25, 0.85);
+    backdrop-filter: blur(15px);
+    border: 2px solid rgba(255, 215, 0, 0.25);
+    border-radius: 20px;
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.12);
+    min-width: 200px;
+    box-sizing: border-box;
+    margin-left: auto;
+    margin-right: 30px;
+    margin-bottom: 90px;
+}
+
+.payment-method-heading {
+    color: #ffd700;
+    font-size: 1.1rem;
+    margin: 0 0 15px 0;
+    text-align: center;
+}
+
+.invoice-payment-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+}
+
+.invoice-payment-btn {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 12px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    flex-direction: column;
+    color: white;
+    font-weight: 600;
+}
+
+.btn-icon {
+    font-size: 1.8rem;
+}
+
+.btn-text {
+    font-size: 0.95rem;
+}
+
+.card-btn {
+    background: linear-gradient(135deg, #1e3a8a, #1e40af);
+}
+
+.card-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(30, 64, 175, 0.4);
+}
+
+.qr-btn {
+    background: linear-gradient(135deg, #7c3aed, #6d28d9);
+}
+
+.qr-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(124, 58, 237, 0.4);
+}
+
+.invoice-card {
+    width: 100%;
+    max-width: 600px;
+    background: rgba(25, 25, 25, 0.85);
+    backdrop-filter: blur(15px);
+    border: 2px solid rgba(255, 215, 0, 0.25);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.12);
+    box-sizing: border-box;
+}
+
+.invoice-heading {
+    text-align: center;
+    color: #ffd700;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    letter-spacing: 0.5px;
+}
+
+.invoice-section {
+    margin-bottom: 18px;
+}
+
+.invoice-section h2 {
+    color: #ffd700;
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+}
+
+.invoice-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    color: white;
+    font-size: 0.95rem;
+}
+
+.invoice-row span:first-child {
+    color: #d1d1d1;
+}
+
+.invoice-row span:last-child {
+    font-weight: 600;
+}
+
+.total-fare {
+    margin-top: 12px;
+    padding-top: 18px;
+    border-top: 2px solid rgba(255, 215, 0, 0.25);
+    font-size: 1.15rem;
+    font-weight: bold;
+    color: #ffd700;
+}
+
+.payment-options {
+    display: flex;
+    gap: 12px;
+    margin-top: 12px;
+}
+
+.payment-button {
+    flex: 1;
+    padding: 12px 15px;
+    background: transparent;
+    border: 2px solid #ffd700;
+    border-radius: 10px;
+    color: white;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.payment-button:hover {
+    background: rgba(255, 215, 0, 0.15);
+    transform: translateY(-2px);
+}
+
+.payment-button.active {
+    background: #ffd700;
+    color: black;
+    font-weight: bold;
+}
+
+.invoice-total {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.invoice-total h2 {
+    color: #d1d1d1;
+    margin-bottom: 6px;
+    font-size: 0.95rem;
+}
+
+.invoice-total h1 {
+    color: #ffd700;
+    font-size: 2.2rem;
+    margin: 0;
+}
+
+.invoice-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.back-button {
+    flex: 0.5;
+    padding: 12px 15px;
+    background: rgba(255, 215, 0, 0.1);
+    border: 2px solid rgba(255, 215, 0, 0.4);
+    border-radius: 10px;
+    color: #ffd700;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.back-button:hover {
+    background: rgba(255, 215, 0, 0.2);
+    transform: translateY(-2px);
+}
+
+.back-button:active {
+    transform: scale(0.97);
+}
+
+.proceed-payment-button {
+    flex: 1;
+    padding: 12px 15px;
+    background: linear-gradient(135deg, #ffd700, #f5b700);
+    border: none;
+    border-radius: 10px;
+    color: black;
+    font-size: 0.9rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.proceed-payment-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(255, 215, 0, 0.3);
+}
+
+.proceed-payment-button:active {
+    transform: scale(0.98);
+}
+
+@media (max-width: 1024px) {
+
+    .invoice-main-wrapper {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .payment-options-container {
+        width: 100%;
+        max-width: 600px;
+    }
+
+}
+
+@media (max-width: 768px) {
+
+    .invoice-main-wrapper {
+        padding: 30px 15px;
+        gap: 15px;
+    }
+
+    .invoice-card {
+        padding: 25px;
+    }
+
+    .invoice-heading {
+        font-size: 1.6rem;
+    }
+
+    .payment-options-container {
+        padding: 20px;
+    }
+
+    .invoice-total h1 {
+        font-size: 2rem;
+    }
+
+}
+
+@media (max-width: 480px) {
+
+    .invoice-main-wrapper {
+        padding: 20px 15px;
+        margin-top: 95px;
+        gap: 15px;
+    }
+
+    .invoice-card {
+        padding: 20px;
+        border-radius: 15px;
+    }
+
+    .invoice-heading {
+        font-size: 1.4rem;
+    }
+
+    .invoice-row {
+        font-size: 0.9rem;
+        padding: 6px 0;
+    }
+
+    .invoice-section h2 {
+        font-size: 1rem;
+    }
+
+    .invoice-total h1 {
+        font-size: 1.8rem;
+    }
+
+    .payment-options-container {
+        padding: 15px;
+        width: 100%;
+    }
+
+    .payment-method-heading {
+        font-size: 1rem;
+    }
+
+    .invoice-payment-btn {
+        padding: 12px;
+        font-size: 0.9rem;
+    }
+
+    .btn-icon {
+        font-size: 1.5rem;
+    }
+
+    .btn-text {
+        font-size: 0.85rem;
+    }
+
+    .invoice-back-btn {
+        padding: 10px 15px;
+        font-size: 0.8rem;
+    }
+
+}

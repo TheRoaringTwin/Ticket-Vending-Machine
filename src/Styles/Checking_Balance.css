@@ -1,0 +1,152 @@
+.checking-page{
+
+    width:100%;
+    min-height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    padding:30px;
+    padding-top:150px;
+
+}
+
+.checking-container{
+
+    width:650px;
+    max-width:95%;
+
+    background:white;
+
+    border-radius:25px;
+
+    padding:60px 45px;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+
+    box-shadow:0 15px 35px rgba(0,0,0,0.15);
+
+}
+
+.checking-loader{
+
+    width:90px;
+    height:90px;
+    border:10px solid #dbeafe;
+    border-top:10px solid #2563eb;
+    border-radius:50%;
+    animation:spin 1s linear infinite;
+
+}
+
+.checking-container h2{
+
+    margin-top:35px;
+
+    color:#1f2937;
+
+    font-size:32px;
+
+    text-align:center;
+
+}
+
+.checking-container p{
+
+    margin-top:15px;
+
+    color:#6b7280;
+
+    font-size:18px;
+
+    text-align:center;
+
+}
+
+.balance-card{
+
+    width:100%;
+
+    margin-top:30px;
+
+    padding:25px;
+
+    border-radius:15px;
+
+    background:#f8fafc;
+
+    text-align:center;
+
+}
+
+.balance-card p{
+
+    color:#64748b;
+
+    margin-bottom:10px;
+
+    font-size:17px;
+
+}
+
+.balance-card h3{
+
+    color:#111827;
+
+    font-size:28px;
+
+    letter-spacing:2px;
+
+}
+
+.balance-card h1{
+
+    color:#16a34a;
+
+    font-size:42px;
+
+    margin-top:10px;
+
+}
+
+@keyframes spin{
+
+    0%{
+
+        transform:rotate(0deg);
+
+    }
+
+    100%{
+
+        transform:rotate(360deg);
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .checking-container{
+
+        padding:40px 25px;
+
+    }
+
+    .checking-loader{
+
+        width:70px;
+        height:70px;
+
+    }
+
+    .balance-card h1{
+
+        font-size:34px;
+
+    }
+
+}
