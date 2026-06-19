@@ -23,7 +23,24 @@ const Costing = () => {
 
     const text = translations[language];
 
-    const baseFare = 20;
+    // Calculate fare based on distance between stations
+    const calculateFare = () => {
+        if (!currentStation || !selectedStation) return 20;
+
+        // Extract station numbers from names (e.g., "Station 1" -> 1)
+        const currentNum = parseInt(currentStation.split(" ")[1]);
+        const selectedNum = selectedStation.id;
+
+        // Calculate absolute distance
+        const distance = Math.abs(selectedNum - currentNum);
+
+        // Pricing formula: base 5 + (distance * 100/7), rounded to nearest 5
+        // This gives: distance 1 -> 20, distance 8 -> 120
+        const fare = Math.round((5 + distance * (100 / 7)) / 5) * 5;
+        return fare;
+    };
+
+    const baseFare = calculateFare();
 
     const [journeyType, setJourneyType] = useState("oneway");
     const [passengers, setPassengers] = useState(1);

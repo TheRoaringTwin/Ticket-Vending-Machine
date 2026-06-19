@@ -32,8 +32,24 @@ function Invoice() {
 
   const text = translations[language];
 
-  // Calculate fare per passenger (assuming base fare of 20)
-  const baseFare = 20;
+  // Calculate fare based on distance between stations
+  const calculateBaseFare = () => {
+    if (!currentStation || !selectedStationObj.id) return 20;
+
+    // Extract station numbers from names (e.g., "Station 1" -> 1)
+    const currentNum = parseInt(currentStation.split(" ")[1]);
+    const selectedNum = selectedStationObj.id;
+
+    // Calculate absolute distance
+    const distance = Math.abs(selectedNum - currentNum);
+
+    // Pricing formula: base 5 + (distance * 100/7), rounded to nearest 5
+    // This gives: distance 1 -> 20, distance 8 -> 120
+    const fare = Math.round((5 + distance * (100 / 7)) / 5) * 5;
+    return fare;
+  };
+
+  const baseFare = calculateBaseFare();
   const farePerPassenger = journeyType === "oneway" ? baseFare : baseFare * 2;
 
   // Handle back navigation

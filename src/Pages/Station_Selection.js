@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import Navbar from "../Components/Navbar";
 import StationUI from "../Components/StationUI";
+import AlertModal from "../Components/AlertModal";
 import stations from "../Data/Stations";
 import translations from "../Components/Translation";
 import { useStation } from "../Context/StationContext";
@@ -22,6 +23,8 @@ const StationSelection = () => {
     const language = location.state?.language || "english";
     // Selected station
     const [selectedStation, setSelectedStation] = useState(null);
+    // Alert modal state
+    const [showAlert, setShowAlert] = useState(false);
     // Translation object
     const text = translations[language];
     // Only one station can be selected
@@ -38,7 +41,7 @@ const StationSelection = () => {
     const handleContinue = () => {
 
         if (!selectedStation) {
-            alert(text.selectStationMessage);
+            setShowAlert(true);
             return;
         }
         navigate("/Costing", {
@@ -62,12 +65,17 @@ const StationSelection = () => {
             <StationUI
                 language={language}
                 text={text}
-                currentStation={currentStation}            
+                currentStation={currentStation}
                 stations={stations}
                 selectedStation={selectedStation}
                 onStationSelect={handleStationSelect}
                 onContinue={handleContinue}
                 onBack={handleBack}
+            />
+            <AlertModal
+                message={text.selectStationMessage}
+                isOpen={showAlert}
+                onClose={() => setShowAlert(false)}
             />
             <img src="/train.png" className='train-image' />
         </div>

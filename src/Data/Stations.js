@@ -7,7 +7,7 @@ const stations = [
     {id : 6, name: 'Station 6', code: '006'},
     {id : 7, name: 'Station 7', code: '007'},
     {id : 8, name: 'Station 8', code: '008'},
-    {id : 9, name: 'Station 9', code: '009'}
+    {id : 9, name: 'Station 9', code: '009'},
 ];
 
 export default stations
