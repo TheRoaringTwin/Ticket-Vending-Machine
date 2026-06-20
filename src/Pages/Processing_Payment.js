@@ -42,7 +42,7 @@ function Processing_Payment() {
             clearInterval(countdownInterval);
         };
 
-    }, [navigate, paymentData]);
+    }, []);
 
     const handleBack = () => {
         navigate("/Invoice", { state: paymentData });

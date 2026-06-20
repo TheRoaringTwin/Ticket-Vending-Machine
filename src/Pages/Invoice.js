@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import Navbar from "../Components/Navbar";
 import InvoiceUI from "../Components/InvoiceUI";
 import translations from "../Components/Translation";
 import { useFlow } from "../Context/FlowContext";
+import { useInvoice } from "../Context/InvoiceContext";
+import { useCosting } from "../Context/CostingContext";
 import "../Styles/Invoice.css";
 
 
@@ -11,30 +13,44 @@ function Invoice() {
   const navigate = useNavigate();
   const location = useLocation();
   const { goToNextPage, goToPreviousPage, currentPage } = useFlow();
+  const { invoiceData, updateInvoiceData } = useInvoice();
+  const { costingData } = useCosting();
 
   useEffect(() => {
     if (currentPage === 2) {
       goToNextPage();
     }
-  }, []);
+  }, [currentPage]);
 
-  // Get data from Costing page
-  const currentStation = location.state?.currentStation || "Unknown";
-  const selectedStationObj = location.state?.selectedStation || {};
-  const selectedStationName = selectedStationObj?.name || "Unknown";
-  const journeyType = location.state?.journeyType || "oneway";
-  const passengers = location.state?.passengers || 1;
-  const totalFare = location.state?.totalFare || 0;
-  const initialLanguage = location.state?.language || "english";
+  // Get data from location.state or context
+  const currentStation = location.state?.currentStation || invoiceData.currentStation || "Unknown";
+  const selectedStationObj = location.state?.selectedStation || invoiceData.selectedStation || costingData.selectedStation || {};
+  const selectedStationName = selectedStationObj?.name || invoiceData.selectedStation?.name || costingData.selectedStation?.name || "Unknown";
+  const journeyType = location.state?.journeyType || invoiceData.journeyType || costingData.journeyType || "oneway";
+  const passengers = location.state?.passengers || invoiceData.passengers || costingData.passengers || 1;
+  const totalFare = location.state?.totalFare || invoiceData.totalFare || 0;
+  const initialLanguage = location.state?.language || invoiceData.language || costingData.language || "english";
 
   // State management
   const [language, setLanguage] = useState(initialLanguage);
+
+  // Store data in context whenever it changes
+  useEffect(() => {
+    updateInvoiceData({
+      currentStation,
+      selectedStation: selectedStationObj,
+      journeyType,
+      passengers,
+      totalFare,
+      language: initialLanguage,
+    });
+  }, [currentStation, selectedStationObj, journeyType, passengers, totalFare, initialLanguage, updateInvoiceData]);
 
   const text = translations[language];
 
   // Calculate fare based on distance between stations
   const calculateBaseFare = () => {
-    if (!currentStation || !selectedStationObj.id) return 20;
+    if (!currentStation || !selectedStationObj.id) return 5;
 
     // Extract station numbers from names (e.g., "Station 1" -> 1)
     const currentNum = parseInt(currentStation.split(" ")[1]);
@@ -43,14 +59,13 @@ function Invoice() {
     // Calculate absolute distance
     const distance = Math.abs(selectedNum - currentNum);
 
-    // Pricing formula: base 5 + (distance * 100/7), rounded to nearest 5
-    // This gives: distance 1 -> 20, distance 8 -> 120
-    const fare = Math.round((5 + distance * (100 / 7)) / 5) * 5;
+    // Pricing formula: 5 rupees per station distance (matches Costing)
+    const fare = distance * 5;
     return fare;
   };
 
-  const baseFare = calculateBaseFare();
-  const farePerPassenger = journeyType === "oneway" ? baseFare : baseFare * 2;
+  const baseFare = useMemo(() => calculateBaseFare(), [currentStation, selectedStationObj]);
+  const farePerPassenger = journeyType === "oneway" ? baseFare : baseFare * 1.5;
 
   // Handle back navigation
   const handleBack = () => {
@@ -68,6 +83,21 @@ function Invoice() {
     navigate("/Card_Details", {
       state: {
         selectedPayment: "card",
+        totalFare,
+        currentStation,
+        selectedStationName,
+        journeyType,
+        passengers,
+        language,
+      },
+    });
+  };
+
+  // Handle QR payment
+  const handleQRPayment = () => {
+    navigate("/QR_Payment", {
+      state: {
+        selectedPayment: "qr",
         totalFare,
         currentStation,
         selectedStationName,
@@ -103,7 +133,7 @@ function Invoice() {
               <span className="btn-icon">💳</span>
               <span className="btn-text">Card Payment</span>
             </button>
-            <button className="invoice-payment-btn qr-btn">
+            <button className="invoice-payment-btn qr-btn" onClick={handleQRPayment}>
               <span className="btn-icon">📱</span>
               <span className="btn-text">QR Payment</span>
             </button>

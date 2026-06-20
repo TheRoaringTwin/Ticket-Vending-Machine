@@ -6,7 +6,7 @@ export const FlowProvider = ({ children }) => {
   const [flowType, setFlowType] = useState(null);
   const [currentPage, setCurrentPage] = useState(0);
 
-  const ticketFlow = ['home', 'stationSelect', 'journeyType', 'invoice', 'payment'];
+  const ticketFlow = ['home', 'stationSelect', 'journeyType', 'invoice', 'payment', 'ticketPrint'];
   const balanceFlow = ['home', 'checkBalance', 'balanceDisplay'];
 
   const getFlow = () => flowType === 'balance' ? balanceFlow : ticketFlow;

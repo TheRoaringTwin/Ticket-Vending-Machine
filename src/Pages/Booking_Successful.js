@@ -1,20 +1,25 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import Navbar from "../Components/Navbar";
 import BookingSuccessfulUI from "../Components/Booking_SuccesfulUI";
 import translations from "../Components/Translation";
+import { useFlow } from "../Context/FlowContext";
 import "../Styles/Booking_Successful.css";
 
 function Booking_Successful() {
 
     const navigate = useNavigate();
     const location = useLocation();
+    const { goToNextPage, currentPage } = useFlow();
     const language = location.state?.language || "english";
     const text = translations[language];
 
-    const handleHome = () => {
 
-        navigate("/");
+    const handlePrint = () => {
+
+        navigate("/Ticket_Print", {
+            state: location.state
+        });
 
     };
 
@@ -25,7 +30,7 @@ function Booking_Successful() {
             <Navbar language={language} />
 
             <BookingSuccessfulUI
-                handleHome={handleHome}
+                handlePrint={handlePrint}
                 language={language}
                 text={text}
             />

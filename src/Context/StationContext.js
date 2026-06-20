@@ -7,13 +7,23 @@ export const StationProvider = ({ children }) => {
     return localStorage.getItem('currentStation') || 'Station 1';
   });
 
+  const [selectedStation, setSelectedStation] = useState(null);
+
   const updateStation = useCallback((stationName) => {
     setCurrentStation(stationName);
     localStorage.setItem('currentStation', stationName);
   }, []);
 
+  const updateSelectedStation = useCallback((station) => {
+    setSelectedStation(station);
+  }, []);
+
+  const resetSelectedStation = useCallback(() => {
+    setSelectedStation(null);
+  }, []);
+
   return (
-    <StationContext.Provider value={{ currentStation, updateStation }}>
+    <StationContext.Provider value={{ currentStation, updateStation, selectedStation, updateSelectedStation, resetSelectedStation }}>
       {children}
     </StationContext.Provider>
   );

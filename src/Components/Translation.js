@@ -61,6 +61,7 @@ const translations = {
       journeyType: 'Journey Type',
       invoice: 'Invoice',
       payment: 'Payment',
+      ticketPrint: 'Ticket Print',
       checkBalance: 'Check Balance',
       balanceDisplay: 'Balance',
       // Card Payment page
@@ -133,6 +134,7 @@ const translations = {
       journeyType: 'यात्रा प्रकार',
       invoice: 'इनवॉयस',
       payment: 'भुगतान',
+      ticketPrint: 'टिकट प्रिंट',
       checkBalance: 'शेष राशि जांचें',
       balanceDisplay: 'शेष राशि',
       // Card Payment page

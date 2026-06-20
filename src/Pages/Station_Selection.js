@@ -11,18 +11,18 @@ import { useFlow } from "../Context/FlowContext";
 const StationSelection = () => {
     const navigate = useNavigate();
     const location = useLocation();
-    const { currentStation } = useStation();
+    const { currentStation, selectedStation: contextSelectedStation, updateSelectedStation } = useStation();
     const { goToNextPage, goToPreviousPage, currentPage } = useFlow();
 
     useEffect(() => {
         if (currentPage === 0) {
             goToNextPage();
         }
-    }, []);
+    }, [currentPage]);
     // Get language from home screen or default to english
     const language = location.state?.language || "english";
-    // Selected station
-    const [selectedStation, setSelectedStation] = useState(null);
+    // Selected station - use context value if available
+    const [selectedStation, setSelectedStation] = useState(contextSelectedStation || null);
     // Alert modal state
     const [showAlert, setShowAlert] = useState(false);
     // Translation object
@@ -32,8 +32,10 @@ const StationSelection = () => {
 
         if (selectedStation === station) {
             setSelectedStation(null);
+            updateSelectedStation(null);
         } else {
             setSelectedStation(station);
+            updateSelectedStation(station);
         }
 
     };
@@ -55,6 +57,7 @@ const StationSelection = () => {
     
     // Back button handler
     const handleBack = () => {
+        updateSelectedStation(null);
         goToPreviousPage();
         navigate('/');
     };

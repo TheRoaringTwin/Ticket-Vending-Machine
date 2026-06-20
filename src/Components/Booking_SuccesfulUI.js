@@ -1,7 +1,7 @@
 import React from "react";
 import "../Styles/Booking_SuccessfulUI.css";
 
-function BookingSuccessfulUI({ handleHome, language, text }) {
+function BookingSuccessfulUI({ handlePrint, language, text }) {
     return (
         <div className="success-page">
             <div className="success-container">
@@ -18,9 +18,9 @@ function BookingSuccessfulUI({ handleHome, language, text }) {
                 </p>
                 <button
                     className="home-button"
-                    onClick={handleHome}
+                    onClick={handlePrint}
                 >
-                    {text.goHome}
+                    Print Ticket Receipt
                 </button>
             </div>
         </div>

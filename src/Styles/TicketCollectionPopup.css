@@ -1,0 +1,124 @@
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.popup-container {
+    background: white;
+    border-radius: 25px;
+    padding: 50px 40px;
+    width: 90%;
+    max-width: 500px;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    animation: slideUp 0.4s ease-out;
+}
+
+@keyframes slideUp {
+    0% {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.popup-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #28C76F, #20a85d);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    color: white;
+    margin: 0 auto 25px;
+    box-shadow: 0 10px 30px rgba(40, 199, 111, 0.3);
+    animation: scaleIn 0.5s ease-out;
+}
+
+@keyframes scaleIn {
+    0% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.popup-title {
+    font-size: 1.8rem;
+    color: #111827;
+    margin: 0 0 15px 0;
+    font-weight: 700;
+}
+
+.popup-message {
+    font-size: 1.1rem;
+    color: #4b5563;
+    margin: 0;
+    line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+    .popup-container {
+        padding: 40px 30px;
+    }
+
+    .popup-title {
+        font-size: 1.5rem;
+    }
+
+    .popup-message {
+        font-size: 1rem;
+    }
+
+    .popup-icon {
+        width: 70px;
+        height: 70px;
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .popup-container {
+        padding: 30px 20px;
+    }
+
+    .popup-title {
+        font-size: 1.3rem;
+    }
+
+    .popup-message {
+        font-size: 0.95rem;
+    }
+
+    .popup-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 2rem;
+    }
+}
