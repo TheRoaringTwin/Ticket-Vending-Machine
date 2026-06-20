@@ -13,12 +13,10 @@ const SessionTimeOut = ({ children }) => {
   const countdownTimer = useRef(null);
 
  
-  const EXCLUDED_PAGES = ["/", "/Processing_Payment"];
-
   const INACTIVITY_TIME = 2 * 60 * 1000;
-  const COUNTDOWN_DURATION = 60 * 1000; 
 
   const resetSessionTimeout = useCallback(() => {
+    const EXCLUDED_PAGES = ["/", "/Processing_Payment"];
 
     if (EXCLUDED_PAGES.includes(location.pathname)) {
       return;
@@ -30,7 +28,7 @@ const SessionTimeOut = ({ children }) => {
     setShowCountdown(false);
     setCountdownTime(60);
 
-   
+
     inactivityTimer.current = setTimeout(() => {
       setShowCountdown(true);
       setCountdownTime(60);
@@ -48,7 +46,7 @@ const SessionTimeOut = ({ children }) => {
         });
       }, 1000);
     }, INACTIVITY_TIME);
-  }, [navigate, location.pathname]);
+  }, [navigate, location.pathname, INACTIVITY_TIME]);
 
   useEffect(() => {
     resetSessionTimeout();

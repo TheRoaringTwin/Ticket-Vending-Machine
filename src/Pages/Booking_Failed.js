@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import Navbar from "../Components/Navbar";
-import Booking_FailedUI from "../Components/Booking_FailedUI";
+import BookingFailedUI from "../Components/Booking_FailedUI";
 import translations from "../Components/Translation";
 
 function Booking_Failed() {
@@ -23,7 +23,7 @@ function Booking_Failed() {
 
             <Navbar language={language} />
 
-            <Booking_FailedUI
+            <BookingFailedUI
 
                 handleRetry={handleRetry}
                 language={language}

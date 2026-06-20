@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import Navbar from "../Components/Navbar";
 import ProcessingPaymentUI from "../Components/Processing_PaymentUI";
@@ -9,11 +9,11 @@ function Processing_Payment() {
     const navigate = useNavigate();
     const location = useLocation();
     const [timeLeft, setTimeLeft] = useState(5);
-    const [language, setLanguage] = useState(location.state?.language || "english");
+    const language = location.state?.language || "english";
     const text = translations[language];
 
     // Get data from Invoice page
-    const paymentData = location.state || {};
+    const paymentData = useMemo(() => location.state || {}, [location.state]);
     const BAD_CARD = "1234567891234567"; // Bad card number without dashes
 
     useEffect(() => {
@@ -42,7 +42,7 @@ function Processing_Payment() {
             clearInterval(countdownInterval);
         };
 
-    }, []);
+    }, [navigate, paymentData]);
 
     const handleBack = () => {
         navigate("/Invoice", { state: paymentData });

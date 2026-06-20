@@ -1,5 +1,4 @@
 import React from 'react'
-import stations from '../Data/Stations'
 import '../Styles/Station_Selection.css';
 
 const StationUI = ({
@@ -16,7 +15,7 @@ const StationUI = ({
     const travelPathRef = React.useRef(null);
     const [stationPositions, setStationPositions] = React.useState({});
     const [travelPathData, setTravelPathData] = React.useState('');
-    const [travelPathLength, setTravelPathLength] = React.useState(0);
+    const [, setTravelPathLength] = React.useState(0);
 
     const STATION_RADIUS = 40;
 

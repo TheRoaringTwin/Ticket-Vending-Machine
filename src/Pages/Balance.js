@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import Navbar from "../Components/Navbar";
 import BalanceUI from "../Components/BalanceUI";

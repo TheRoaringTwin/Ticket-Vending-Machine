@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import Navbar from "../Components/Navbar";
-import Ticket_PrintUI from "../Components/Ticket_PrintUI";
+import TicketPrintUI from "../Components/Ticket_PrintUI";
 import translations from "../Components/Translation";
 import { useFlow } from "../Context/FlowContext";
 import { useInvoice } from "../Context/InvoiceContext";
@@ -25,18 +25,15 @@ function Ticket_Print() {
         if (flowType === 'ticket' && currentPage === 4) {
             goToNextPage();
         }
-    }, [currentPage, flowType]);
+    }, [currentPage, flowType, goToNextPage]);
 
-    // Get data from previous pages
-    const paymentData = location.state || {};
-
-    const handleGoHome = () => {
+    const handleGoHome = useCallback(() => {
         resetInvoiceData();
         resetCostingData();
         resetSelectedStation();
         goToHome();
         navigate("/", { state: { language } });
-    };
+    }, [resetInvoiceData, resetCostingData, resetSelectedStation, goToHome, navigate, language]);
 
     useEffect(() => {
         const timer = setTimeout(() => {
@@ -50,12 +47,12 @@ function Ticket_Print() {
         }, 9000);
 
         return () => clearTimeout(timer);
-    }, [navigate, goToHome, resetInvoiceData, resetCostingData, resetSelectedStation]);
+    }, [handleGoHome]);
 
     return (
         <>
             <Navbar language={language} />
-            <Ticket_PrintUI text={text} />
+            <TicketPrintUI text={text} />
 
             {showPopup && (
                 <div className="popup-overlay">

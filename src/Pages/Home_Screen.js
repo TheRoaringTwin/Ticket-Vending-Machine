@@ -12,7 +12,7 @@ const PurchaseBotton = ({onclick, language}) => {
     const currentText = translations[language];
     return(
           <button className='metro-btn' onClick={onclick}>
-              <img src="/ticket.png" className='button-icon' />
+              <img src="/ticket.png" className='button-icon' alt="ticket icon" />
               <span>{currentText.purchaseTicket}</span>
           </button>
       );
@@ -22,7 +22,7 @@ const BalanceCheck  = ({onclick, language}) => {
     const currentText = translations[language];
     return(
          <button className='metro-btn' onClick={onclick}>
-                <img src="/money.png" className='button-icon' />
+                <img src="/money.png" className='button-icon' alt="balance check icon" />
                 <span>{currentText.balanceCheck}</span>
           </button>
       );
@@ -74,7 +74,7 @@ const Home_Screen = () => {
             <Navbar language={language} />
             <WelcomeContainer onPurchaseClick={handlePurchaseTicket} onBalanceClick={handleBalanceCheck} language={language} currentStation={currentStation} />
             <Languagebutton language={language} setLanguage={setLanguage} />
-            <img src="/train.png" className='train-image' />
+            <img src="/train.png" className='train-image' alt="train" />
         </>
     );
 }

@@ -62,15 +62,9 @@ const translations = {
       invoice: 'Invoice',
       payment: 'Payment',
       ticketPrint: 'Ticket Print',
-      checkBalance: 'Check Balance',
       balanceDisplay: 'Balance',
-      // Card Payment page
-      cardPayment: 'Card Payment',
       enterCardDetailsPayment: 'Enter your card details to continue',
-      fourDigitPin: '4 Digit PIN',
-      // Processing Payment page
-      processingPayment: 'Processing Payment',
-      pleaseWait: 'Please wait, your payment is being processed...'
+      fourDigitPin: '4 Digit PIN'
     },
     hindi: {
       heading: 'स्टेशन नंबर 1 में स्वागत है',
@@ -135,15 +129,9 @@ const translations = {
       invoice: 'इनवॉयस',
       payment: 'भुगतान',
       ticketPrint: 'टिकट प्रिंट',
-      checkBalance: 'शेष राशि जांचें',
       balanceDisplay: 'शेष राशि',
-      // Card Payment page
-      cardPayment: 'कार्ड भुगतान',
       enterCardDetailsPayment: 'जारी रखने के लिए अपना कार्ड विवरण दर्ज करें',
-      fourDigitPin: '4 अंकों का PIN',
-      // Processing Payment page
-      processingPayment: 'भुगतान प्रसंस्करण',
-      pleaseWait: 'कृपया प्रतीक्षा करें, आपका भुगतान प्रसंस्करण किया जा रहा है...'
+      fourDigitPin: '4 अंकों का PIN'
     }
   };
 

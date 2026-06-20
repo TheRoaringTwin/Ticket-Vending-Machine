@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import Navbar from "../Components/Navbar";
-import Balance_CheckUI from "../Components/Balance_CheckUI";
+import BalanceCheckUI from "../Components/Balance_CheckUI";
 import translations from "../Components/Translation";
 import { useFlow } from "../Context/FlowContext";
 import '../Styles/Balance_Check.css';
@@ -60,7 +60,7 @@ function Balance_Check() {
 
             <Navbar language={language} />
 
-            <Balance_CheckUI
+            <BalanceCheckUI
 
                 cardNumber={cardNumber}
                 setCardNumber={setCardNumber}

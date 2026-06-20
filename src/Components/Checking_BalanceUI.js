@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import "../Styles/Checking_Balance.css";
 
 function Checking_BalanceUI({
@@ -10,13 +10,11 @@ function Checking_BalanceUI({
 
 }) {
 
-    const [loading, setLoading] = useState(true);
-
     useEffect(() => {
 
         const timer = setTimeout(() => {
 
-            setLoading(false);
+            // Simulate loading completion
 
         }, 3000);
 

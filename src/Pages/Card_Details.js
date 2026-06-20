@@ -17,7 +17,7 @@ function Card_Details() {
         if (currentPage === 3) {
             goToNextPage();
         }
-    }, [currentPage]);
+    }, [currentPage, goToNextPage]);
 
     const [cardNumber, setCardNumber] = useState("");
     const [pin, setPin] = useState("");

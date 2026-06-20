@@ -19,10 +19,10 @@ const Costing = () => {
         if (currentPage === 1) {
             goToNextPage();
         }
-    }, [currentPage]);
+    }, [currentPage, goToNextPage]);
 
     const currentStation = location.state?.currentStation || contextCurrentStation;
-    const [selectedStation, setSelectedStation] = useState(location.state?.selectedStation || costingData.selectedStation || null);
+    const [selectedStation] = useState(location.state?.selectedStation || costingData.selectedStation || null);
     const language = location.state?.language || costingData.language || "english";
 
     // Update context when selectedStation changes
@@ -35,24 +35,14 @@ const Costing = () => {
 
     const text = translations[language];
 
-    // Calculate fare based on distance between stations
-    const calculateFare = () => {
+    const baseFare = useMemo(() => {
         if (!currentStation || !selectedStation || !selectedStation.id) return 5;
 
-        // Extract station numbers from names (e.g., "Station 1" -> 1)
         const currentNum = parseInt(currentStation.split(" ")[1]);
         const selectedNum = selectedStation.id;
-
-        // Calculate absolute distance
         const distance = Math.abs(selectedNum - currentNum);
-
-        // Pricing formula: 5 rupees per station distance
-        // Station 1->2 (distance 1) = 5, Station 1->9 (distance 8) = 40
-        const fare = distance * 5;
-        return fare;
-    };
-
-    const baseFare = useMemo(() => calculateFare(), [currentStation, selectedStation]);
+        return distance * 5;
+    }, [currentStation, selectedStation]);
 
     const [journeyType, setJourneyType] = useState(costingData.journeyType || "oneway");
     const [passengers, setPassengers] = useState(costingData.passengers || 1);
@@ -65,7 +55,7 @@ const Costing = () => {
         if (costingData.passengers && costingData.passengers !== passengers) {
             setPassengers(costingData.passengers);
         }
-    }, [costingData.journeyType, costingData.passengers]);
+    }, [costingData.journeyType, costingData.passengers, journeyType, passengers]);
 
     // Store journey type and passengers in context whenever they change
     useEffect(() => {

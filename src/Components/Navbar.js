@@ -1,12 +1,10 @@
 import React, { useState } from 'react'
-import translations from './Translation'
 import TimeDisplay from './TimeDispaly'
 import ProgressIndicator from './ProgressIndicator'
 import stations from '../Data/Stations'
 import { useStation } from '../Context/StationContext'
 
 export default function Navbar({stationName, language = 'english'}) {
-  const text = translations[language] || translations.english;
   const { currentStation, updateStation } = useStation();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
