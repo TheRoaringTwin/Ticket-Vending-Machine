@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../Components/Navbar";
-import QR_PaymentUI from "../Components/QR_PaymentUI";
+import QRPaymentUI from "../Components/QR_PaymentUI";
 import { useFlow } from "../Context/FlowContext";
 
 function QR_Payment() {
@@ -13,7 +13,7 @@ function QR_Payment() {
         if (currentPage === 3) {
             goToNextPage();
         }
-    }, [currentPage]);
+    }, [currentPage, goToNextPage]);
 
     useEffect(() => {
 
@@ -37,7 +37,7 @@ function QR_Payment() {
 
             <Navbar />
 
-            <QR_PaymentUI onBack={handleBack} />
+            <QRPaymentUI onBack={handleBack} />
 
             <img src="/train.png" className="train-image" alt="train" />
 

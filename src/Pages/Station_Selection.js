@@ -18,7 +18,7 @@ const StationSelection = () => {
         if (currentPage === 0) {
             goToNextPage();
         }
-    }, [currentPage]);
+    }, [currentPage, goToNextPage]);
     // Get language from home screen or default to english
     const language = location.state?.language || "english";
     // Selected station - use context value if available
@@ -80,7 +80,7 @@ const StationSelection = () => {
                 isOpen={showAlert}
                 onClose={() => setShowAlert(false)}
             />
-            <img src="/train.png" className='train-image' />
+            <img src="/train.png" className='train-image' alt="train" />
         </div>
     );
 

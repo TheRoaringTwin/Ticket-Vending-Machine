@@ -1,7 +1,7 @@
 import React from "react";
 import "../Styles/QR_Payment.css";
 
-function QR_PaymentUI({ onBack }) {
+function QRPaymentUI({ onBack }) {
 
     return (
 
@@ -51,4 +51,4 @@ function QR_PaymentUI({ onBack }) {
 
 }
 
-export default QR_PaymentUI;
+export default QRPaymentUI;
