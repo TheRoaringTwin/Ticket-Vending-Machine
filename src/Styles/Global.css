@@ -51,16 +51,15 @@ body{
     top:0;
     left:0;
     width:100%;
-    height:auto;
-    min-height: var(--margin-navbar-height);
+    height: 95px;
     display:grid;
     grid-template-columns: 1fr 1fr 1fr;
     align-items:center;
     justify-items:center;
-    padding-left: var(--padding-page-x);
-    padding-right: var(--padding-page-x);
-    padding-top: clamp(12px, 2vh, 15px);
-    padding-bottom: clamp(12px, 2vh, 15px);
+    padding-left:60px;
+    padding-right:60px;
+    padding-top:15px;
+    padding-bottom:15px;
     background:rgba(84,132,208,.65);
     backdrop-filter:blur(18px);
     border-bottom:1px solid rgba(255,255,255,.2);
@@ -71,25 +70,20 @@ body{
 }
 
 .station-name{
-    color: var(--color-gold);
-    font-size: var(--font-navbar-station);
+    color:#d4af37;
+    font-size:3rem;
     font-weight:bold;
-    letter-spacing: clamp(1px, 0.5vw, 3px);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: clamp(150px, 30vw, 350px);
+    letter-spacing:2px;
 }
 
 .time {
     position: static;
-    font-size: var(--font-navbar-time);
+    font-size: 1.8em;
     opacity: 0.9;
-    color: var(--color-white);
+    color: #ffffff;
     z-index: 500;
     text-align: right;
     justify-self: end;
-    white-space: nowrap;
 }
 
 .station-dropdown-wrapper {
@@ -100,22 +94,17 @@ body{
 .dropdown-toggle {
     background: none;
     border: none;
-    color: var(--color-gold);
-    font-size: var(--font-navbar-station);
+    color: #d4af37;
+    font-size: 3rem;
     font-weight: bold;
-    letter-spacing: clamp(1px, 0.5vw, 3px);
+    letter-spacing: 2px;
     cursor: pointer;
     padding: 0;
     font-family: Arial, Helvetica, sans-serif;
-    transition: var(--transition-normal);
+    transition: 0.3s;
     display: flex;
     align-items: center;
-    gap: clamp(6px, 1vw, 12px);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: clamp(150px, 30vw, 350px);
-    flex-shrink: 0;
+    gap: 10px;
 }
 
 .dropdown-toggle:hover {
@@ -124,10 +113,9 @@ body{
 }
 
 .dropdown-arrow {
-    font-size: clamp(1rem, 2.5vw, 1.5rem);
-    transition: transform var(--transition-normal);
+    font-size: 1.5rem;
+    transition: transform 0.3s ease;
     display: inline-block;
-    flex-shrink: 0;
 }
 
 .dropdown-arrow.open {
@@ -140,11 +128,10 @@ body{
     left: 0;
     background: rgba(84, 132, 208, 0.95);
     backdrop-filter: blur(18px);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-xl);
-    margin-top: clamp(8px, 1.5vw, 15px);
-    min-width: clamp(180px, 30vw, 300px);
-    max-width: 90vw;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    margin-top: 10px;
+    min-width: 200px;
     z-index: 1001;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
@@ -152,21 +139,21 @@ body{
 .dropdown-item {
     display: block;
     width: 100%;
-    padding: var(--spacing-md) var(--spacing-lg);
+    padding: 15px 20px;
     background: none;
     border: none;
-    color: var(--color-white);
-    font-size: var(--font-navbar-dropdown-item);
+    color: white;
+    font-size: 1.1rem;
     text-align: left;
     cursor: pointer;
-    transition: var(--transition-normal);
+    transition: 0.3s;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 500;
 }
 
 .dropdown-item:hover {
     background: rgba(255, 255, 255, 0.15);
-    padding-left: calc(var(--spacing-lg) + clamp(3px, 1vw, 8px));
+    padding-left: 25px;
 }
 
 .dropdown-item:first-child {
@@ -175,128 +162,4 @@ body{
 
 .dropdown-item:last-child {
     border-radius: 0 0 15px 15px;
-}
-
-/* ============================================================================
-   RESPONSIVE BREAKPOINTS
-   ============================================================================ */
-
-@media (max-width: 1023px) {
-    .navbar {
-        padding-top: clamp(10px, 1.5vh, 12px);
-        padding-bottom: clamp(10px, 1.5vh, 12px);
-    }
-
-    .dropdown-toggle {
-        font-size: clamp(1.2rem, 4vw, 2.5rem);
-    }
-
-    .station-name {
-        font-size: clamp(1.2rem, 4vw, 2.5rem);
-    }
-
-    .time {
-        font-size: clamp(0.85rem, 2.5vw, 1.4rem);
-    }
-
-    .dropdown-arrow {
-        font-size: clamp(0.9rem, 2vw, 1.2rem);
-    }
-}
-
-@media (max-width: 767px) {
-    .navbar {
-        grid-template-columns: 1fr 1fr;
-        padding-left: var(--padding-page-x);
-        padding-right: var(--padding-page-x);
-        gap: clamp(8px, 2vw, 16px);
-    }
-
-    .station-dropdown-wrapper {
-        grid-column: 1 / -1;
-        justify-self: start;
-    }
-
-    .time {
-        grid-column: 2;
-        justify-self: end;
-    }
-
-    .dropdown-toggle {
-        font-size: clamp(1rem, 3.5vw, 2rem);
-    }
-
-    .station-name {
-        font-size: clamp(1rem, 3.5vw, 2rem);
-    }
-
-    .dropdown-arrow {
-        font-size: clamp(0.8rem, 1.8vw, 1rem);
-    }
-
-    .station-dropdown-menu {
-        min-width: clamp(150px, 80vw, 280px);
-    }
-}
-
-@media (max-width: 480px) {
-    .navbar {
-        min-height: auto;
-        padding: clamp(8px, 1.5vh, 10px) var(--padding-page-x);
-        grid-template-columns: 1fr;
-        gap: clamp(6px, 1.5vw, 10px);
-    }
-
-    .station-dropdown-wrapper {
-        grid-column: 1;
-        width: 100%;
-    }
-
-    .dropdown-toggle {
-        width: 100%;
-        font-size: clamp(0.9rem, 3vw, 1.5rem);
-        justify-content: flex-start;
-    }
-
-    .time {
-        grid-column: 1;
-        font-size: clamp(0.8rem, 2vw, 1rem);
-        justify-self: start;
-    }
-
-    .dropdown-arrow {
-        font-size: clamp(0.7rem, 1.5vw, 0.9rem);
-    }
-
-    .station-dropdown-menu {
-        min-width: 100%;
-        max-width: 100%;
-    }
-}
-
-@media (min-width: 1440px) {
-    .navbar {
-        padding-left: 60px;
-        padding-right: 60px;
-    }
-
-    .station-name {
-        font-size: 3rem;
-    }
-
-    .dropdown-toggle {
-        font-size: 3rem;
-    }
-
-    .time {
-        font-size: 1.8rem;
-    }
-
-    .dropdown-arrow {
-        font-size: 1.5rem;
-    }
-
-    .station-dropdown-menu {
-        min-width: 300px;
-    }
 }

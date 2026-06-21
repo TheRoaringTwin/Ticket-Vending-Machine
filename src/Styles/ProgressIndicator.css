@@ -2,16 +2,19 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px;
+  padding: 10px;
   z-index: 500;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .progress-dots {
   display: flex;
   align-items: center;
   gap: 15px;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   justify-content: center;
+  overflow-x: auto;
 }
 
 .progress-step {

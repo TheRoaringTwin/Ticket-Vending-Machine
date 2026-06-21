@@ -232,21 +232,23 @@
 
 .invoice-actions {
     display: flex;
-    gap: 12px;
+    gap: 8px;
     margin-top: 20px;
+    width: 100%;
 }
 
 .back-button {
-    flex: 0.5;
-    padding: 12px 15px;
+    flex: 0.4;
+    padding: 10px 12px;
     background: rgba(255, 215, 0, 0.1);
     border: 2px solid rgba(255, 215, 0, 0.4);
     border-radius: 10px;
     color: #ffd700;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     font-weight: 600;
     cursor: pointer;
     transition: 0.3s ease;
+    white-space: nowrap;
 }
 
 .back-button:hover {
@@ -260,15 +262,16 @@
 
 .proceed-payment-button {
     flex: 1;
-    padding: 12px 15px;
+    padding: 10px 12px;
     background: linear-gradient(135deg, #ffd700, #f5b700);
     border: none;
     border-radius: 10px;
     color: black;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     font-weight: bold;
     cursor: pointer;
     transition: 0.3s ease;
+    white-space: nowrap;
 }
 
 .proceed-payment-button:hover {
