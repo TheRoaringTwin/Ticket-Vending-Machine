@@ -3,12 +3,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 50px 15px;
+    padding: var(--padding-component-xl) var(--padding-component-sm);
     box-sizing: border-box;
     min-height: 100vh;
     margin-top: 0;
     position: relative;
-    z-index: 10;
+    z-index: var(--z-content);
 }
 
 .invoice-card {
@@ -17,28 +17,28 @@
     background: rgba(25, 25, 25, 0.85);
     backdrop-filter: blur(15px);
     border: 2px solid rgba(255, 215, 0, 0.25);
-    border-radius: 20px;
-    padding: 25px;
+    border-radius: var(--radius-lg);
+    padding: var(--padding-component-md);
     box-shadow: 0 0 30px rgba(255, 215, 0, 0.12);
 }
 
 .invoice-heading {
     text-align: center;
     color: #ffd700;
-    font-size: 1.8rem;
-    margin-bottom: 20px;
+    font-size: clamp(1.3rem, 5vw, 1.8rem);
+    margin-bottom: var(--spacing-lg);
     letter-spacing: 0.5px;
 }
 
 .invoice-section {
-    margin-bottom: 18px;
+    margin-bottom: var(--spacing-md);
 }
 
 .invoice-section h2 {
     color: #ffd700;
-    font-size: 1.1rem;
-    margin-bottom: 12px;
-    padding-bottom: 6px;
+    font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+    margin-bottom: var(--spacing-sm);
+    padding-bottom: var(--spacing-xs);
     border-bottom: 1px solid rgba(255, 215, 0, 0.2);
 }
 
@@ -46,9 +46,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 8px 0;
+    padding: clamp(6px, 1.5vh, 8px) 0;
     color: white;
-    font-size: 0.95rem;
+    font-size: clamp(0.85rem, 2vw, 0.95rem);
 }
 
 .invoice-row span:first-child {
@@ -60,30 +60,31 @@
 }
 
 .total-fare {
-    margin-top: 12px;
-    padding-top: 18px;
+    margin-top: var(--spacing-sm);
+    padding-top: var(--spacing-md);
     border-top: 2px solid rgba(255, 215, 0, 0.25);
-    font-size: 1.15rem;
+    font-size: clamp(1rem, 2.5vw, 1.15rem);
     font-weight: bold;
     color: #ffd700;
 }
 
 .payment-options {
     display: flex;
-    gap: 12px;
-    margin-top: 12px;
+    gap: var(--gap-sm);
+    margin-top: var(--spacing-sm);
 }
 
 .payment-button {
     flex: 1;
-    padding: 10px;
+    min-height: var(--button-height-md);
+    padding: clamp(8px, 1.5vh, 10px);
     background: transparent;
     border: 2px solid #ffd700;
-    border-radius: 10px;
+    border-radius: var(--radius-md);
     color: white;
-    font-size: 0.9rem;
+    font-size: clamp(0.8rem, 1.8vw, 0.9rem);
     cursor: pointer;
-    transition: 0.3s ease;
+    transition: var(--transition-normal);
 }
 
 .payment-button:hover {
@@ -98,39 +99,40 @@
 }
 
 .invoice-total {
-    margin: 18px 0;
+    margin: var(--spacing-md) 0;
     text-align: center;
 }
 
 .invoice-total h2 {
     color: #d1d1d1;
-    margin-bottom: 6px;
-    font-size: 0.95rem;
+    margin-bottom: var(--spacing-xs);
+    font-size: clamp(0.85rem, 2vw, 0.95rem);
 }
 
 .invoice-total h1 {
     color: #ffd700;
-    font-size: 2.2rem;
+    font-size: clamp(1.6rem, 6vw, 2.2rem);
     margin: 0;
 }
 
 .invoice-actions {
     display: flex;
-    gap: 10px;
-    margin-top: 18px;
+    gap: var(--gap-sm);
+    margin-top: var(--spacing-md);
 }
 
 .back-button {
     flex: 0.5;
-    padding: 10px;
+    min-height: var(--button-height-md);
+    padding: clamp(8px, 1.5vh, 10px);
     background: rgba(255, 215, 0, 0.1);
     border: 2px solid rgba(255, 215, 0, 0.4);
-    border-radius: 10px;
+    border-radius: var(--radius-md);
     color: #ffd700;
-    font-size: 0.85rem;
+    font-size: clamp(0.75rem, 1.5vw, 0.85rem);
     font-weight: 600;
     cursor: pointer;
-    transition: 0.3s ease;
+    transition: var(--transition-normal);
 }
 
 .back-button:hover {
@@ -144,15 +146,16 @@
 
 .proceed-payment-button {
     flex: 1;
-    padding: 10px;
+    min-height: var(--button-height-md);
+    padding: clamp(8px, 1.5vh, 10px);
     background: linear-gradient(135deg, #ffd700, #f5b700);
     border: none;
-    border-radius: 10px;
+    border-radius: var(--radius-md);
     color: black;
-    font-size: 0.9rem;
+    font-size: clamp(0.8rem, 2vw, 0.9rem);
     font-weight: bold;
     cursor: pointer;
-    transition: 0.3s ease;
+    transition: var(--transition-normal);
 }
 
 .proceed-payment-button:hover {
@@ -164,14 +167,13 @@
     transform: scale(0.98);
 }
 
-@media (max-width: 768px) {
-
+@media (max-width: 767px) {
     .invoice-card {
-        padding: 25px;
+        padding: var(--padding-component-md);
     }
 
     .invoice-heading {
-        font-size: 1.8rem;
+        font-size: clamp(1.2rem, 4vw, 1.8rem);
     }
 
     .payment-options {
@@ -179,7 +181,7 @@
     }
 
     .invoice-total h1 {
-        font-size: 2.2rem;
+        font-size: clamp(1.5rem, 5vw, 2.2rem);
     }
 
     .invoice-actions {
@@ -193,34 +195,31 @@
     .proceed-payment-button {
         flex: 1;
     }
-
 }
 
 @media (max-width: 480px) {
-
     .invoice-container {
-        padding: 20px 10px;
+        padding: var(--padding-component-md) var(--padding-component-sm);
     }
 
     .invoice-card {
-        padding: 20px;
-        border-radius: 18px;
+        padding: var(--padding-component-md);
+        border-radius: var(--radius-md);
     }
 
     .invoice-row {
-        font-size: 0.9rem;
+        font-size: clamp(0.8rem, 1.8vw, 0.9rem);
     }
 
     .invoice-section h2 {
-        font-size: 1.1rem;
+        font-size: clamp(0.95rem, 2.2vw, 1.1rem);
     }
 
     .invoice-total h1 {
-        font-size: 2rem;
+        font-size: clamp(1.4rem, 4vw, 2rem);
     }
 
     .proceed-payment-button {
-        font-size: 1rem;
+        font-size: clamp(0.8rem, 1.8vw, 1rem);
     }
-
 }

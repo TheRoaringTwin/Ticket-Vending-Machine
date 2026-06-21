@@ -16,23 +16,25 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 8px;
+    gap: var(--spacing-sm);
 }
 
 .station-dot {
-    width: 20px;
-    height: 20px;
+    width: clamp(14px, 3vw, 20px);
+    height: clamp(14px, 3vw, 20px);
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 10px;
+    font-size: clamp(8px, 1.5vw, 10px);
     font-weight: bold;
     background-color: transparent;
-    border: 2px solid;
+    border: clamp(1.5px, 0.4vw, 2px) solid;
     box-shadow: none;
-    transition: all 0.3s ease;
+    transition: var(--transition-normal);
     position: relative;
+    min-height: var(--button-height-md);
+    cursor: pointer;
 }
 
 .current-station {
@@ -40,8 +42,8 @@
 }
 
 .current-station:hover {
-    width: 24px;
-    height: 24px;
+    width: clamp(18px, 4vw, 24px);
+    height: clamp(18px, 4vw, 24px);
 }
 
 .selected-station {
@@ -49,70 +51,70 @@
 }
 
 .selected-station:hover {
-    width: 24px;
-    height: 24px;
+    width: clamp(18px, 4vw, 24px);
+    height: clamp(18px, 4vw, 24px);
 }
 
 .connecting-line {
-    width: 80px;
-    height: 2px;
+    width: clamp(40px, 15vw, 80px);
+    height: clamp(1.5px, 0.3vw, 2px);
     background: linear-gradient(90deg, #22c55e, #ef4444);
-    margin: 0 15px;
+    margin: 0 clamp(8px, 2vw, 15px);
     border-radius: 1px;
     box-shadow: none;
 }
 
 .station-name-label {
-    font-size: 11px;
+    font-size: clamp(8px, 1.8vw, 11px);
     font-weight: 500;
     color: #000000;
     text-align: center;
     white-space: nowrap;
-    max-width: 80px;
+    max-width: clamp(50px, 12vw, 80px);
     overflow: hidden;
     text-overflow: ellipsis;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     .station-dot {
-        width: 16px;
-        height: 16px;
+        width: clamp(13px, 2.8vw, 16px);
+        height: clamp(13px, 2.8vw, 16px);
     }
 
     .connecting-line {
-        width: 50px;
-        margin: 0 10px;
+        width: clamp(35px, 12vw, 50px);
+        margin: 0 clamp(7px, 1.5vw, 10px);
     }
 
     .station-dot:hover {
-        width: 20px;
-        height: 20px;
+        width: clamp(17px, 3.8vw, 20px);
+        height: clamp(17px, 3.8vw, 20px);
     }
 
     .station-name-label {
-        font-size: 9px;
-        max-width: 60px;
+        font-size: clamp(7px, 1.5vw, 9px);
+        max-width: clamp(45px, 10vw, 60px);
     }
 }
 
 @media (max-width: 480px) {
     .station-dot {
-        width: 14px;
-        height: 14px;
+        width: clamp(12px, 2.5vw, 14px);
+        height: clamp(12px, 2.5vw, 14px);
     }
 
     .connecting-line {
-        width: 40px;
-        margin: 0 8px;
+        width: clamp(30px, 10vw, 40px);
+        margin: 0 clamp(6px, 1.2vw, 8px);
     }
 
     .station-dot:hover {
-        width: 18px;
-        height: 18px;
+        width: clamp(15px, 3.2vw, 18px);
+        height: clamp(15px, 3.2vw, 18px);
     }
 
     .station-name-label {
-        font-size: 8px;
-        max-width: 50px;
+        font-size: clamp(6px, 1.2vw, 8px);
+        max-width: clamp(40px, 8vw, 50px);
     }
 }

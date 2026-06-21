@@ -47,17 +47,6 @@ const Costing = () => {
     const [journeyType, setJourneyType] = useState(costingData.journeyType || "oneway");
     const [passengers, setPassengers] = useState(costingData.passengers || 1);
 
-    // Sync journey type and passengers with context when context changes
-    useEffect(() => {
-        if (costingData.journeyType && costingData.journeyType !== journeyType) {
-            setJourneyType(costingData.journeyType);
-        }
-        if (costingData.passengers && costingData.passengers !== passengers) {
-            setPassengers(costingData.passengers);
-        }
-    }, [costingData.journeyType, costingData.passengers, journeyType, passengers]);
-
-    // Store journey type and passengers in context whenever they change
     useEffect(() => {
         updateCostingData({
             journeyType,

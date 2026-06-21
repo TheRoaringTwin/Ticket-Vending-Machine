@@ -1,152 +1,113 @@
-.checking-page{
-
-    width:100%;
-    min-height:100vh;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    padding:30px;
-    padding-top:150px;
-
+.checking-page {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: var(--padding-component-lg);
+    padding-top: var(--margin-top-page);
 }
 
-.checking-container{
-
-    width:650px;
-    max-width:95%;
-
-    background:white;
-
-    border-radius:25px;
-
-    padding:60px 45px;
-
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-
-    box-shadow:0 15px 35px rgba(0,0,0,0.15);
-
+.checking-container {
+    width: clamp(280px, 90vw, 650px);
+    background: white;
+    border-radius: var(--radius-xl);
+    padding: var(--padding-component-xl);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
 }
 
-.checking-loader{
-
-    width:90px;
-    height:90px;
-    border:10px solid #dbeafe;
-    border-top:10px solid #2563eb;
-    border-radius:50%;
-    animation:spin 1s linear infinite;
-
+.checking-loader {
+    width: clamp(70px, 15vw, 90px);
+    height: clamp(70px, 15vw, 90px);
+    border: clamp(8px, 2vw, 10px) solid #dbeafe;
+    border-top: clamp(8px, 2vw, 10px) solid #2563eb;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
 }
 
-.checking-container h2{
-
-    margin-top:35px;
-
-    color:#1f2937;
-
-    font-size:32px;
-
-    text-align:center;
-
+.checking-container h2 {
+    margin-top: var(--spacing-2xl);
+    color: #1f2937;
+    font-size: clamp(1.5rem, 5vw, 2rem);
+    text-align: center;
 }
 
-.checking-container p{
-
-    margin-top:15px;
-
-    color:#6b7280;
-
-    font-size:18px;
-
-    text-align:center;
-
+.checking-container p {
+    margin-top: var(--spacing-sm);
+    color: #6b7280;
+    font-size: clamp(1rem, 2.5vw, 1.125rem);
+    text-align: center;
 }
 
-.balance-card{
-
-    width:100%;
-
-    margin-top:30px;
-
-    padding:25px;
-
-    border-radius:15px;
-
-    background:#f8fafc;
-
-    text-align:center;
-
+.balance-card {
+    width: 100%;
+    margin-top: var(--spacing-lg);
+    padding: var(--padding-component-md);
+    border-radius: var(--radius-lg);
+    background: #f8fafc;
+    text-align: center;
 }
 
-.balance-card p{
-
-    color:#64748b;
-
-    margin-bottom:10px;
-
-    font-size:17px;
-
+.balance-card p {
+    color: #64748b;
+    margin-bottom: var(--spacing-sm);
+    font-size: clamp(1rem, 2.5vw, 1.0625rem);
 }
 
-.balance-card h3{
-
-    color:#111827;
-
-    font-size:28px;
-
-    letter-spacing:2px;
-
+.balance-card h3 {
+    color: #111827;
+    font-size: clamp(1.5rem, 4vw, 1.75rem);
+    letter-spacing: 2px;
 }
 
-.balance-card h1{
-
-    color:#16a34a;
-
-    font-size:42px;
-
-    margin-top:10px;
-
+.balance-card h1 {
+    color: #16a34a;
+    font-size: clamp(2rem, 6vw, 2.625rem);
+    margin-top: var(--spacing-sm);
 }
 
-@keyframes spin{
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
 
-    0%{
-
-        transform:rotate(0deg);
-
+@media (max-width: 767px) {
+    .checking-container {
+        padding: var(--padding-component-lg);
     }
 
-    100%{
-
-        transform:rotate(360deg);
-
+    .checking-loader {
+        width: clamp(60px, 12vw, 70px);
+        height: clamp(60px, 12vw, 70px);
     }
 
+    .balance-card h1 {
+        font-size: clamp(1.7rem, 5vw, 2.125rem);
+    }
 }
 
-@media(max-width:768px){
-
-    .checking-container{
-
-        padding:40px 25px;
-
+@media (max-width: 480px) {
+    .checking-container {
+        padding: var(--padding-component-md);
     }
 
-    .checking-loader{
-
-        width:70px;
-        height:70px;
-
+    .checking-loader {
+        width: clamp(50px, 10vw, 60px);
+        height: clamp(50px, 10vw, 60px);
     }
 
-    .balance-card h1{
-
-        font-size:34px;
-
+    .balance-card {
+        padding: var(--padding-component-md);
     }
 
+    .balance-card h1 {
+        font-size: clamp(1.5rem, 4vw, 1.875rem);
+    }
 }

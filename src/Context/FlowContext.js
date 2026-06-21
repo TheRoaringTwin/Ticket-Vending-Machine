@@ -38,6 +38,13 @@ export const FlowProvider = ({ children }) => {
     setCurrentPage(0);
   };
 
+  const goToPage = (pageIndex) => {
+    const flow = getFlow();
+    if (pageIndex >= 0 && pageIndex < flow.length) {
+      setCurrentPage(pageIndex);
+    }
+  };
+
   return (
     <FlowContext.Provider value={{
       flowType,
@@ -47,6 +54,7 @@ export const FlowProvider = ({ children }) => {
       goToNextPage,
       goToPreviousPage,
       goToHome,
+      goToPage,
       getFlow
     }}>
       {children}

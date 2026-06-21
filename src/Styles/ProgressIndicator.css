@@ -33,17 +33,29 @@
 .progress-dot.visited {
   background-color: #4ade80;
   box-shadow: 0 0 15px rgba(74, 222, 128, 0.6);
+  cursor: pointer;
+}
+
+.progress-dot.visited:hover {
+  transform: scale(1.2);
+  box-shadow: 0 0 20px rgba(74, 222, 128, 0.8);
 }
 
 .progress-dot.current {
   background-color: #ef4444;
   box-shadow: 0 0 15px rgba(239, 68, 68, 0.8);
   animation: pulse 1.5s ease-in-out infinite;
+  cursor: pointer;
+}
+
+.progress-dot.current:hover {
+  filter: brightness(1.2);
 }
 
 .progress-dot.pending {
   background-color: #9ca3af;
   opacity: 0.5;
+  cursor: not-allowed;
 }
 
 .progress-label {

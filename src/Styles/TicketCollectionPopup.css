@@ -4,11 +4,11 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.6);
+    background: var(--color-bg-overlay);
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 1000;
+    z-index: var(--z-dropdown);
     animation: fadeIn 0.3s ease-in-out;
 }
 
@@ -23,8 +23,8 @@
 
 .popup-container {
     background: white;
-    border-radius: 25px;
-    padding: 50px 40px;
+    border-radius: var(--radius-xl);
+    padding: var(--padding-component-xl);
     width: 90%;
     max-width: 500px;
     text-align: center;
@@ -44,16 +44,16 @@
 }
 
 .popup-icon {
-    width: 80px;
-    height: 80px;
+    width: clamp(60px, 16vw, 80px);
+    height: clamp(60px, 16vw, 80px);
     background: linear-gradient(135deg, #28C76F, #20a85d);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 3rem;
+    font-size: clamp(2rem, 6vw, 3rem);
     color: white;
-    margin: 0 auto 25px;
+    margin: 0 auto var(--spacing-lg);
     box-shadow: 0 10px 30px rgba(40, 199, 111, 0.3);
     animation: scaleIn 0.5s ease-out;
 }
@@ -70,55 +70,55 @@
 }
 
 .popup-title {
-    font-size: 1.8rem;
+    font-size: clamp(1.3rem, 5vw, 1.8rem);
     color: #111827;
-    margin: 0 0 15px 0;
+    margin: 0 0 var(--spacing-sm) 0;
     font-weight: 700;
 }
 
 .popup-message {
-    font-size: 1.1rem;
+    font-size: clamp(0.95rem, 2.5vw, 1.1rem);
     color: #4b5563;
     margin: 0;
-    line-height: 1.6;
+    line-height: var(--line-height-relaxed);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     .popup-container {
-        padding: 40px 30px;
+        padding: var(--padding-component-lg);
     }
 
     .popup-title {
-        font-size: 1.5rem;
+        font-size: clamp(1.2rem, 4vw, 1.5rem);
     }
 
     .popup-message {
-        font-size: 1rem;
+        font-size: clamp(0.9rem, 2.2vw, 1rem);
     }
 
     .popup-icon {
-        width: 70px;
-        height: 70px;
-        font-size: 2.5rem;
+        width: clamp(55px, 14vw, 70px);
+        height: clamp(55px, 14vw, 70px);
+        font-size: clamp(1.8rem, 5vw, 2.5rem);
     }
 }
 
 @media (max-width: 480px) {
     .popup-container {
-        padding: 30px 20px;
+        padding: var(--padding-component-md);
     }
 
     .popup-title {
-        font-size: 1.3rem;
+        font-size: clamp(1.1rem, 3.5vw, 1.3rem);
     }
 
     .popup-message {
-        font-size: 0.95rem;
+        font-size: clamp(0.85rem, 2vw, 0.95rem);
     }
 
     .popup-icon {
-        width: 60px;
-        height: 60px;
-        font-size: 2rem;
+        width: clamp(50px, 12vw, 60px);
+        height: clamp(50px, 12vw, 60px);
+        font-size: clamp(1.5rem, 4vw, 2rem);
     }
 }
