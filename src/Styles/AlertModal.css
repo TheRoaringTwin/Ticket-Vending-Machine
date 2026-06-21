@@ -23,14 +23,15 @@
 
 .alert-modal {
   background: #ffffff;
-  border: 2px solid #333333;
-  border-radius: 20px;
-  padding: 50px 40px;
-  max-width: 450px;
-  width: 90%;
+  border: clamp(1px, 0.5vw, 3px) solid #333333;
+  border-radius: clamp(14px, 4vw, 25px);
+  padding: clamp(40px, 6vh, 60px) clamp(32px, 6vw, 48px);
+  max-width: clamp(280px, 90vw, 480px);
+  width: 100%;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
   text-align: center;
   animation: slideUp 0.4s ease;
+  box-sizing: border-box;
 }
 
 @keyframes slideUp {
@@ -45,15 +46,15 @@
 }
 
 .alert-icon {
-  font-size: 3rem;
-  margin-bottom: 20px;
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  margin-bottom: clamp(16px, 2.5vh, 24px);
 }
 
 .alert-message {
   color: #333333;
-  font-size: 1.1rem;
+  font-size: clamp(0.95rem, 2.5vw, 1.2rem);
   line-height: 1.6;
-  margin: 0 0 30px 0;
+  margin: 0 0 clamp(20px, 3vh, 32px) 0;
   font-weight: 500;
 }
 
@@ -61,13 +62,14 @@
   background: linear-gradient(135deg, #1976d2, #1565c0);
   color: white;
   border: none;
-  padding: 12px 40px;
-  font-size: 1rem;
+  padding: clamp(12px, 2vh, 16px) clamp(32px, 5vw, 48px);
+  font-size: clamp(0.9rem, 2.2vw, 1.1rem);
   font-weight: 600;
-  border-radius: 25px;
+  border-radius: clamp(20px, 5vw, 30px);
   cursor: pointer;
   transition: 0.3s;
   box-shadow: 0 5px 15px rgba(25, 118, 210, 0.3);
+  min-height: 44px;
 }
 
 .alert-button:hover {
@@ -79,46 +81,3 @@
   transform: translateY(0);
 }
 
-@media (max-width: 768px) {
-  .alert-modal {
-    padding: 40px 25px;
-    max-width: 90%;
-  }
-
-  .alert-icon {
-    font-size: 2.5rem;
-    margin-bottom: 15px;
-  }
-
-  .alert-message {
-    font-size: 1rem;
-    margin-bottom: 25px;
-  }
-
-  .alert-button {
-    padding: 10px 35px;
-    font-size: 0.95rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .alert-modal {
-    padding: 30px 20px;
-    width: 95%;
-  }
-
-  .alert-icon {
-    font-size: 2rem;
-    margin-bottom: 12px;
-  }
-
-  .alert-message {
-    font-size: 0.95rem;
-    margin-bottom: 20px;
-  }
-
-  .alert-button {
-    padding: 10px 30px;
-    font-size: 0.9rem;
-  }
-}

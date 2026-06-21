@@ -4,7 +4,7 @@ import ProgressIndicator from './ProgressIndicator'
 import stations from '../Data/Stations'
 import { useStation } from '../Context/StationContext'
 
-export default function Navbar({stationName, language = 'english'}) {
+export default function Navbar({stationName, language = 'english', isHomeScreen = false}) {
   const { currentStation, updateStation } = useStation();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
@@ -13,28 +13,41 @@ export default function Navbar({stationName, language = 'english'}) {
     setIsDropdownOpen(false);
   };
 
+  const handleDropdownClick = () => {
+    if (isHomeScreen) {
+      setIsDropdownOpen(!isDropdownOpen);
+    }
+  };
+
   return (
     <nav className='navbar'>
       <div className='station-dropdown-wrapper'>
-        <button
-          className='station-name dropdown-toggle'
-          onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-        >
-          {currentStation}
-          <span className={`dropdown-arrow ${isDropdownOpen ? 'open' : ''}`}>▼</span>
-        </button>
-        {isDropdownOpen && (
-          <div className='station-dropdown-menu'>
-            {stations.map((station) => (
-              <button
-                key={station.id}
-                className='dropdown-item'
-                onClick={() => handleStationSelect(station.name)}
-              >
-                {station.name}
-              </button>
-            ))}
-          </div>
+        {isHomeScreen ? (
+          <>
+            <button
+              className='station-name dropdown-toggle'
+              onClick={handleDropdownClick}
+              title='Click to change station'
+            >
+              {currentStation}
+              <span className={`dropdown-arrow ${isDropdownOpen ? 'open' : ''}`}>▼</span>
+            </button>
+            {isDropdownOpen && (
+              <div className='station-dropdown-menu'>
+                {stations.map((station) => (
+                  <button
+                    key={station.id}
+                    className='dropdown-item'
+                    onClick={() => handleStationSelect(station.name)}
+                  >
+                    {station.name}
+                  </button>
+                ))}
+              </div>
+            )}
+          </>
+        ) : (
+          <span className='station-name-text'>{currentStation}</span>
         )}
       </div>
       <ProgressIndicator language={language} />

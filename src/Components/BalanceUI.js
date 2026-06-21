@@ -11,11 +11,6 @@ function BalanceUI({
 
 }) {
 
-    const getMaskedCardNumber = (card) => {
-        if (!card || card.length < 4) return card;
-        return "xxxx-xxxx-xxxx-" + card.slice(-4);
-    };
-
     const formatBalance = (amount) => {
         if (!amount && amount !== 0) return "₹ 0.00";
         return "₹ " + amount.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
@@ -59,17 +54,17 @@ function BalanceUI({
 
                         <div className="balance-info-row">
 
-                            <span className="balance-label">{text.cardNumber} :</span>
+                            <span className="balance-label">{text.totalAmount} :</span>
 
-                            <span className="balance-card-number">{getMaskedCardNumber(cardNumber)}</span>
+                            <span className="balance-value">{formatBalance(balance)}</span>
 
                         </div>
 
                         <div className="balance-info-row">
 
-                            <span className="balance-label">{text.totalAmount} :</span>
+                            <span className="balance-label">Card Status :</span>
 
-                            <span className="balance-amount">{formatBalance(balance)}</span>
+                            <span className="balance-value">{`Active`}</span>
 
                         </div>
 

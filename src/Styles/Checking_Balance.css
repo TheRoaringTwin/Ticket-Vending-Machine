@@ -1,18 +1,21 @@
 .checking-page {
     width: 100%;
-    min-height: 100vh;
+    margin-top: clamp(120px, 18vh, 150px);
+    height: calc(100vh - clamp(120px, 18vh, 150px) - 2 * clamp(16px, 3vh, 40px));
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: var(--padding-component-lg);
-    padding-top: var(--margin-top-page);
+    padding: clamp(16px, 3vh, 40px) clamp(12px, 5vw, 40px);
+    position: relative;
+    z-index: var(--z-content);
+    box-sizing: border-box;
 }
 
 .checking-container {
     width: clamp(280px, 90vw, 650px);
     background: white;
     border-radius: var(--radius-xl);
-    padding: var(--padding-component-xl);
+    padding: clamp(24px, 5vw, 40px);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -20,32 +23,34 @@
 }
 
 .checking-loader {
-    width: clamp(70px, 15vw, 90px);
-    height: clamp(70px, 15vw, 90px);
-    border: clamp(8px, 2vw, 10px) solid #dbeafe;
-    border-top: clamp(8px, 2vw, 10px) solid #2563eb;
+    width: clamp(55px, 13vw, 85px);
+    height: clamp(55px, 13vw, 85px);
+    border: clamp(6px, 1.5vw, 9px) solid #dbeafe;
+    border-top: clamp(6px, 1.5vw, 9px) solid #2563eb;
     border-radius: 50%;
     animation: spin 1s linear infinite;
 }
 
 .checking-container h2 {
-    margin-top: var(--spacing-2xl);
+    margin-top: clamp(16px, 3vh, 28px);
     color: #1f2937;
-    font-size: clamp(1.5rem, 5vw, 2rem);
+    font-size: clamp(1.3rem, 4.5vw, 2rem);
     text-align: center;
+    line-height: 1.2;
 }
 
 .checking-container p {
-    margin-top: var(--spacing-sm);
+    margin-top: clamp(8px, 1.5vh, 14px);
     color: #6b7280;
-    font-size: clamp(1rem, 2.5vw, 1.125rem);
+    font-size: clamp(0.9rem, 2.2vw, 1.1rem);
     text-align: center;
+    line-height: 1.5;
 }
 
 .balance-card {
     width: 100%;
-    margin-top: var(--spacing-lg);
-    padding: var(--padding-component-md);
+    margin-top: clamp(12px, 2.5vh, 20px);
+    padding: clamp(16px, 4vw, 28px);
     border-radius: var(--radius-lg);
     background: #f8fafc;
     text-align: center;
@@ -53,20 +58,22 @@
 
 .balance-card p {
     color: #64748b;
-    margin-bottom: var(--spacing-sm);
-    font-size: clamp(1rem, 2.5vw, 1.0625rem);
+    margin-bottom: clamp(6px, 1.2vh, 10px);
+    font-size: clamp(0.9rem, 2vw, 1.05rem);
 }
 
 .balance-card h3 {
     color: #111827;
-    font-size: clamp(1.5rem, 4vw, 1.75rem);
-    letter-spacing: 2px;
+    font-size: clamp(1.2rem, 3.5vw, 1.6rem);
+    letter-spacing: clamp(1px, 0.5vw, 2px);
+    line-height: 1.2;
 }
 
 .balance-card h1 {
     color: #16a34a;
-    font-size: clamp(2rem, 6vw, 2.625rem);
-    margin-top: var(--spacing-sm);
+    font-size: clamp(1.6rem, 5vw, 2.5rem);
+    margin-top: clamp(6px, 1.2vh, 12px);
+    line-height: 1.2;
 }
 
 @keyframes spin {
@@ -75,39 +82,5 @@
     }
     100% {
         transform: rotate(360deg);
-    }
-}
-
-@media (max-width: 767px) {
-    .checking-container {
-        padding: var(--padding-component-lg);
-    }
-
-    .checking-loader {
-        width: clamp(60px, 12vw, 70px);
-        height: clamp(60px, 12vw, 70px);
-    }
-
-    .balance-card h1 {
-        font-size: clamp(1.7rem, 5vw, 2.125rem);
-    }
-}
-
-@media (max-width: 480px) {
-    .checking-container {
-        padding: var(--padding-component-md);
-    }
-
-    .checking-loader {
-        width: clamp(50px, 10vw, 60px);
-        height: clamp(50px, 10vw, 60px);
-    }
-
-    .balance-card {
-        padding: var(--padding-component-md);
-    }
-
-    .balance-card h1 {
-        font-size: clamp(1.5rem, 4vw, 1.875rem);
     }
 }

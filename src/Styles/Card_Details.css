@@ -1,122 +1,124 @@
 .card-page {
     width: 100%;
-    min-height: 100vh;
+    margin-top: clamp(120px, 18vh, 150px);
+    height: calc(100vh - clamp(120px, 18vh, 150px) - 2 * clamp(16px, 3vh, 40px));
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 50px 30px;
+    padding: clamp(16px, 3vh, 40px) clamp(12px, 5vw, 40px);
     position: relative;
     z-index: 10;
+    box-sizing: border-box;
 }
 
 .card-container {
-    width: 500px;
-    max-width: 95%;
+    width: clamp(280px, 90vw, 500px);
     background: rgba(255,255,255,0.22);
     backdrop-filter: blur(18px);
     -webkit-backdrop-filter: blur(18px);
     border: 1px solid rgba(255,255,255,0.3);
-    border-radius: 25px;
-    padding: 45px;
+    border-radius: var(--radius-xl);
+    padding: clamp(28px, 6vw, 45px);
     box-shadow: 0 15px 40px rgba(0,0,0,0.2);
 }
 
 .card-container h1 {
     text-align: center;
     color: white;
-    margin-bottom: 10px;
+    margin-bottom: clamp(8px, 1.5vh, 12px);
+    font-size: clamp(1.4rem, 4.5vw, 2rem);
+    line-height: 1.2;
 }
 
 .card-subtitle {
     text-align: center;
     color: rgba(255,255,255,0.8);
-    margin-bottom: 35px;
+    margin-bottom: clamp(20px, 4vh, 35px);
+    font-size: clamp(0.9rem, 2.2vw, 1.1rem);
 }
 
 .input-group {
     display: flex;
     flex-direction: column;
-    margin-bottom: 25px;
+    margin-bottom: clamp(16px, 3vh, 25px);
 }
 
 .input-group label {
     color: white;
-    margin-bottom: 10px;
+    margin-bottom: clamp(6px, 1.2vh, 10px);
     font-weight: 600;
+    font-size: clamp(0.9rem, 2vw, 1rem);
 }
 
 .input-group input {
-    padding: 15px;
-    border-radius: 12px;
+    padding: clamp(12px, 2vh, 15px) clamp(12px, 2vw, 16px);
+    border-radius: var(--radius-lg);
     border: none;
     outline: none;
-    font-size: 17px;
+    font-size: clamp(1rem, 2.2vw, 1.1rem);
     background: rgba(255,255,255,0.9);
+    transition: var(--transition-normal);
+    min-height: 44px;
+}
+
+.input-group input:focus {
+    background: rgba(255,255,255,1);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
 }
 
 .button-container {
     display: flex;
     justify-content: space-between;
-    margin-top: 35px;
-    gap: 12px;
+    margin-top: clamp(20px, 4vh, 35px);
+    gap: clamp(8px, 2vw, 12px);
+    flex-wrap: wrap;
 }
 
 .back-button {
     flex: 1;
-    padding: 12px 10px;
+    min-width: clamp(80px, 40vw, 130px);
+    padding: clamp(10px, 2vh, 14px) clamp(12px, 3vw, 20px);
     border: none;
-    border-radius: 12px;
+    border-radius: var(--radius-lg);
     background: #6b7280;
     color: white;
     cursor: pointer;
-    font-size: 15px;
-    transition: 0.3s;
+    font-size: clamp(0.9rem, 2vw, 1rem);
+    transition: var(--transition-normal);
+    min-height: 44px;
+    font-weight: 600;
 }
 
 .back-button:hover {
-
     background: #4b5563;
+    transform: translateY(clamp(-1px, -0.8vh, -2px));
+}
 
+.back-button:active {
+    transform: translateY(0);
 }
 
 .continue-button {
     flex: 1;
-    padding: 12px 10px;
-
+    min-width: clamp(80px, 40vw, 130px);
+    padding: clamp(10px, 2vh, 14px) clamp(12px, 3vw, 20px);
     border: none;
-
-    border-radius: 12px;
-
+    border-radius: var(--radius-lg);
     background: #2563eb;
-
     color: white;
-
     cursor: pointer;
-
-    font-size: 17px;
-
-    transition: 0.3s;
-
+    font-size: clamp(0.9rem, 2vw, 1rem);
+    transition: var(--transition-normal);
+    min-height: 44px;
+    font-weight: 600;
 }
 
 .continue-button:hover {
-
     background: #1d4ed8;
-
+    transform: translateY(clamp(-1px, -0.8vh, -2px));
 }
 
-@media(max-width:768px){
-
-    .card-container{
-
-        padding:30px;
-
-    }
-
-    .button-container{
-
-        flex-direction:column;
-
-    }
-
+.continue-button:active {
+    transform: translateY(0);
 }
+

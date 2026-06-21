@@ -44,7 +44,7 @@ const WelcomeContainer = ({onPurchaseClick, onBalanceClick, language, currentSta
 
 const Home_Screen = () => {
     const [language, setLanguage] = useState("english");
-    const { currentStation } = useStation();
+    const { currentStation, updateStation } = useStation();
     const { startTicketFlow, startBalanceFlow, flowType } = useFlow();
     const navigate = useNavigate();
 
@@ -69,10 +69,14 @@ const Home_Screen = () => {
         });
     };
 
+    const handleStationChange = (stationName) => {
+        updateStation(stationName);
+    };
+
     return (
         <>
-            <Navbar language={language} />
-            <WelcomeContainer onPurchaseClick={handlePurchaseTicket} onBalanceClick={handleBalanceCheck} language={language} currentStation={currentStation} />
+            <Navbar language={language} isHomeScreen={true} />
+            <WelcomeContainer onPurchaseClick={handlePurchaseTicket} onBalanceClick={handleBalanceCheck} language={language} currentStation={currentStation} onStationChange={handleStationChange} />
             <Languagebutton language={language} setLanguage={setLanguage} />
             <img src="/train.png" className='train-image' alt="train" />
         </>

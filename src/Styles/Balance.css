@@ -1,18 +1,20 @@
 .balance-page {
     width: 100%;
-    margin-top: var(--margin-navbar-height);
-    padding: var(--padding-component-lg);
+    margin-top: clamp(120px, 18vh, 150px);
+    height: calc(100vh - clamp(120px, 18vh, 150px) - 2 * clamp(16px, 3vh, 40px));
+    padding: clamp(16px, 3vh, 40px) clamp(12px, 5vw, 40px);
     display: flex;
     justify-content: center;
-    align-items: flex-start;
-    min-height: calc(100vh - var(--margin-navbar-height));
+    align-items: center;
+    position: relative;
+    z-index: var(--z-content);
+    box-sizing: border-box;
 }
 
 .balance-container {
-    width: clamp(280px, 90vw, 800px);
-    margin: 0 auto;
-    padding: var(--padding-component-xl);
-    border-radius: var(--radius-lg);
+    width: clamp(300px, 90vw, 650px);
+    padding: clamp(32px, 6vw, 50px);
+    border-radius: var(--radius-xl);
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(25px);
     -webkit-backdrop-filter: blur(25px);
@@ -25,13 +27,13 @@
 }
 
 .balance-loader {
-    width: clamp(70px, 15vw, 90px);
-    height: clamp(70px, 15vw, 90px);
-    border: clamp(8px, 2vw, 10px) solid #dbeafe;
-    border-top: clamp(8px, 2vw, 10px) solid #2563eb;
+    width: clamp(55px, 13vw, 85px);
+    height: clamp(55px, 13vw, 85px);
+    border: clamp(6px, 1.5vw, 9px) solid #dbeafe;
+    border-top: clamp(6px, 1.5vw, 9px) solid #2563eb;
     border-radius: 50%;
     animation: spin 1s linear infinite;
-    margin-bottom: var(--spacing-lg);
+    margin-bottom: clamp(12px, 2.5vh, 20px);
 }
 
 @keyframes spin {
@@ -45,87 +47,48 @@
 
 .balance-title {
     margin-top: 0;
-    font-size: clamp(1.8rem, 6vw, 2.5rem);
-    margin-bottom: var(--spacing-sm);
+    font-size: clamp(1.6rem, 5.5vw, 2.5rem);
+    margin-bottom: clamp(6px, 1.2vh, 10px);
+    line-height: 1.2;
 }
 
 .balance-page h2 {
     margin-top: 0;
-    font-size: clamp(1.5rem, 5vw, 2rem);
-    margin-bottom: var(--spacing-sm);
+    font-size: clamp(1.3rem, 4.5vw, 1.9rem);
+    margin-bottom: clamp(6px, 1.2vh, 10px);
+    line-height: 1.2;
 }
 
 .balance-page p {
     margin-top: 0;
     opacity: 0.8;
-    margin-bottom: var(--spacing-lg);
+    margin-bottom: clamp(12px, 2.5vh, 20px);
     text-align: center;
-    font-size: var(--font-body-base);
+    font-size: clamp(0.9rem, 2.2vw, 1.1rem);
+    line-height: 1.5;
 }
 
 .balance-info-row {
     width: 100%;
-    margin-top: var(--spacing-lg);
+    margin-top: clamp(14px, 2.5vh, 24px);
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: var(--gap-sm);
+    gap: clamp(8px, 2vw, 16px);
     flex-wrap: wrap;
 }
 
 .balance-label {
     color: rgba(255, 255, 255, 0.7);
-    font-size: clamp(0.9rem, 2.5vw, 1.125rem);
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
     font-weight: 500;
 }
 
-.balance-card-number {
-    color: white;
-    font-size: clamp(1rem, 3vw, 1.25rem);
-    letter-spacing: 2px;
-    font-weight: bold;
-}
-
-.balance-amount {
+.balance-value {
     color: #4ade80;
-    font-size: clamp(1.3rem, 4vw, 1.5rem);
-    font-weight: bold;
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    font-weight: 600;
     word-break: break-word;
-}
-
-@media (max-width: 767px) {
-    .balance-container {
-        padding: var(--padding-component-lg);
-    }
-
-    .balance-title {
-        font-size: clamp(1.5rem, 5vw, 1.8rem);
-    }
-
-    .balance-amount {
-        font-size: clamp(1.2rem, 3.5vw, 1.8rem);
-    }
-}
-
-@media (max-width: 480px) {
-    .balance-container {
-        padding: var(--padding-component-md);
-        border-radius: var(--radius-md);
-    }
-
-    .balance-title {
-        font-size: clamp(1.3rem, 4vw, 1.6rem);
-    }
-
-    .balance-page p {
-        font-size: clamp(0.8rem, 2vw, 0.9rem);
-    }
-
-    .balance-info-card {
-        padding: var(--padding-component-md);
-    }
-
-    .balance-amount {
-        font-size: clamp(1.1rem, 3vw, 1.5rem);
-    }
+    line-height: 1.2;
+    letter-spacing: clamp(0.5px, 0.3vw, 1px);
 }

@@ -1,10 +1,12 @@
 import React, { useState, useEffect, useCallback, useRef } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
+import { useFlow } from "../Context/FlowContext";
 import "../Styles/SessionTimeout.css";
 
 const SessionTimeOut = ({ children }) => {
   const navigate = useNavigate();
   const location = useLocation();
+  const { resetFlow } = useFlow();
 
   const [showCountdown, setShowCountdown] = useState(false);
   const [countdownTime, setCountdownTime] = useState(60);
@@ -38,7 +40,8 @@ const SessionTimeOut = ({ children }) => {
           if (prev <= 1) {
             clearInterval(countdownTimer.current);
             setShowCountdown(false);
-            // Redirect to home
+            // Reset flow and redirect to home
+            resetFlow();
             navigate("/");
             return 0;
           }
@@ -46,7 +49,7 @@ const SessionTimeOut = ({ children }) => {
         });
       }, 1000);
     }, INACTIVITY_TIME);
-  }, [navigate, location.pathname, INACTIVITY_TIME]);
+  }, [navigate, location.pathname, INACTIVITY_TIME, resetFlow]);
 
   useEffect(() => {
     resetSessionTimeout();

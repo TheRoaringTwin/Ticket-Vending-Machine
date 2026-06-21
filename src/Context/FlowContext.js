@@ -45,6 +45,11 @@ export const FlowProvider = ({ children }) => {
     }
   };
 
+  const resetFlow = () => {
+    setFlowType(null);
+    setCurrentPage(0);
+  };
+
   return (
     <FlowContext.Provider value={{
       flowType,
@@ -55,6 +60,7 @@ export const FlowProvider = ({ children }) => {
       goToPreviousPage,
       goToHome,
       goToPage,
+      resetFlow,
       getFlow
     }}>
       {children}

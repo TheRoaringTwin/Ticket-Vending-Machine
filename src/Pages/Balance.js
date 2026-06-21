@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import Navbar from "../Components/Navbar";
 import BalanceUI from "../Components/BalanceUI";
 import translations from "../Components/Translation";
@@ -9,6 +9,7 @@ import '../Styles/Balance.css';
 function Balance() {
 
     const location = useLocation();
+    const navigate = useNavigate();
     const { goToNextPage, currentPage } = useFlow();
     const language = location.state?.language || "english";
     const text = translations[language];
@@ -21,6 +22,18 @@ function Balance() {
             goToNextPage();
         }
     }, [currentPage, goToNextPage]);
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            navigate("/", {
+                state: {
+                    language: language
+                }
+            });
+        }, 9000);
+
+        return () => clearTimeout(timer);
+    }, [navigate, language]);
 
     return (
 

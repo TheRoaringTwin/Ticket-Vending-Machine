@@ -3,15 +3,6 @@ import '../Styles/Balance_Check.css';
 
 function Balance_CheckUI({
 
-    cardNumber,
-    setCardNumber,
-
-    expiryDate,
-    setExpiryDate,
-
-    cvv,
-    setCvv,
-
     handleCheck,
     handleBack,
 
@@ -38,90 +29,14 @@ function Balance_CheckUI({
 
                 </p>
 
-                <div className="balance-input-group">
-
-                    <label>
-
-                        {text.cardNumber}
-
-                    </label>
-
-                    <input
-
-                        type="text"
-
-                        maxLength="16"
-
-                        placeholder="1234-5678-1234-5678"
-
-                        value={cardNumber}
-
-                        onChange={(e) =>
-                            setCardNumber(
-                                e.target.value.replace(/\D/g, "")
-                            )
-                        }
-
-                    />
-
-                </div>
-
-                <div className="balance-input-group">
-
-                    <label>
-
-                        {text.expiryDate}
-
-                    </label>
-
-                    <input
-
-                        type="text"
-
-                        maxLength="5"
-
-                        placeholder="MM/YY"
-
-                        value={expiryDate}
-
-                        onChange={(e) => {
-                            let value = e.target.value.replace(/\D/g, "").slice(0, 4);
-                            if (value.length >= 2) {
-                                value = value.slice(0, 2) + "/" + value.slice(2);
-                            }
-                            setExpiryDate(value);
-                        }}
-
-                    />
-
-                </div>
-
-                <div className="balance-input-group">
-
-                    <label>
-
-                        {text.cvv}
-
-                    </label>
-
-                    <input
-
-                        type="password"
-
-                        maxLength="3"
-
-                        placeholder="***"
-
-                        value={cvv}
-
-                        onChange={(e) =>
-                            setCvv(
-                                e.target.value.replace(/\D/g, "")
-                            )
-                        }
-
-                    />
-
+                <div className="card-machine-wrapper">
+                    <div className="card-machine">
+                        <div className="machine-indicator"></div>
+                        <div className="tap-zone">
+                            <div className="card"></div>
+                        </div>
+                        <p className="card-machine-label">Place the card on the machine below</p>
+                    </div>
                 </div>
 
                 <div className="balance-button-group">
@@ -135,18 +50,6 @@ function Balance_CheckUI({
                     >
 
                         {text.back}
-
-                    </button>
-
-                    <button
-
-                        className="balance-button"
-
-                        onClick={handleCheck}
-
-                    >
-
-                        {text.checkBalanceBtn}
 
                     </button>
 

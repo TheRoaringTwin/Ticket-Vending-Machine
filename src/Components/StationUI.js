@@ -157,7 +157,7 @@ const StationUI = ({
                                 strokeDasharray='2000'
                                 style={{
                                     strokeDashoffset: '2000',
-                                    animation: `progressAnimation 10s ease-out forwards`
+                                    animation: `progressAnimation 6s ease-out forwards`
                                 }}
                             />
                         )}

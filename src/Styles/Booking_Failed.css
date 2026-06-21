@@ -3,10 +3,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: var(--padding-component-xl) var(--padding-component-md);
+    padding: clamp(20px, 5vh, 50px) clamp(12px, 5vw, 40px);
     position: relative;
     z-index: var(--z-content);
-    margin-top: var(--margin-content-vertical);
 }
 
 .failed-container {
@@ -14,21 +13,21 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: var(--gap-lg);
+    gap: clamp(16px, 3.5vh, 32px);
     text-align: center;
     background: rgba(255, 255, 255, 0.08);
     backdrop-filter: blur(20px);
     border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: var(--radius-lg);
-    padding: clamp(40px, 8vw, 80px) clamp(25px, 10vw, 60px);
-    max-width: 600px;
+    padding: clamp(32px, 7vw, 80px) clamp(20px, 7vw, 60px);
+    max-width: clamp(280px, 90vw, 600px);
     width: 100%;
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
 }
 
 .failed-circle {
-    width: clamp(80px, 20vw, 120px);
-    height: clamp(80px, 20vw, 120px);
+    width: clamp(70px, 18vw, 110px);
+    height: clamp(70px, 18vw, 110px);
     border-radius: 50%;
     background: linear-gradient(135deg, #ef4444, #dc2626);
     display: flex;
@@ -36,46 +35,53 @@
     align-items: center;
     box-shadow: 0 0 30px rgba(239, 68, 68, 0.4);
     animation: scaleIn 0.6s ease-out;
+    flex-shrink: 0;
 }
 
 .failed-cross {
     color: white;
-    font-size: clamp(36px, 10vw, 60px);
+    font-size: clamp(32px, 8vw, 55px);
     font-weight: bold;
+    line-height: 1;
 }
 
 .failed-heading {
     color: #ef4444;
-    font-size: clamp(1.5rem, 6vw, 2.5rem);
+    font-size: clamp(1.4rem, 5.5vw, 2.4rem);
     font-weight: bold;
     margin: 0;
+    line-height: 1.2;
 }
 
 .failed-message {
     color: rgba(255, 255, 255, 0.8);
-    font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+    font-size: clamp(0.9rem, 2.2vw, 1.1rem);
     margin: 0;
     line-height: var(--line-height-relaxed);
 }
 
 .retry-button {
-    min-height: var(--button-height-md);
-    padding: clamp(12px, 2.5vh, 18px) clamp(30px, 8vw, 50px);
+    min-height: 44px;
+    padding: clamp(10px, 2.2vh, 16px) clamp(24px, 7vw, 48px);
     border: none;
     border-radius: var(--radius-full);
     background: linear-gradient(135deg, #00a8ff, #006eff);
     color: white;
-    font-size: clamp(0.95rem, 2vw, 1.1rem);
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
     font-weight: 600;
     cursor: pointer;
     transition: var(--transition-normal);
     box-shadow: 0px 10px 25px rgba(0, 110, 255, 0.35);
-    margin-top: var(--spacing-lg);
+    margin-top: clamp(12px, 2.5vh, 24px);
 }
 
 .retry-button:hover {
-    transform: translateY(-3px);
+    transform: translateY(clamp(-2px, -1vh, -3px));
     box-shadow: 0px 15px 35px rgba(0, 110, 255, 0.5);
+}
+
+.retry-button:active {
+    transform: translateY(0);
 }
 
 @keyframes scaleIn {
@@ -89,63 +95,113 @@
     }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 1024px) {
     .failed-container {
-        padding: var(--padding-component-xl) var(--padding-component-lg);
+        padding: clamp(28px, 6vw, 70px) clamp(18px, 6vw, 50px);
     }
 
     .failed-circle {
-        width: clamp(70px, 18vw, 100px);
-        height: clamp(70px, 18vw, 100px);
-    }
-
-    .failed-cross {
-        font-size: clamp(32px, 8vw, 50px);
+        width: clamp(65px, 16vw, 100px);
+        height: clamp(65px, 16vw, 100px);
     }
 
     .failed-heading {
-        font-size: clamp(1.3rem, 5vw, 2rem);
+        font-size: clamp(1.3rem, 5vw, 2.2rem);
+    }
+}
+
+@media (max-width: 768px) {
+    .failed-page {
+        padding: clamp(16px, 4vh, 40px) clamp(12px, 4vw, 30px);
+    }
+
+    .failed-container {
+        padding: clamp(24px, 5.5vw, 60px) clamp(16px, 5.5vw, 45px);
+        gap: clamp(14px, 3vh, 28px);
+    }
+
+    .failed-circle {
+        width: clamp(60px, 15vw, 90px);
+        height: clamp(60px, 15vw, 90px);
+    }
+
+    .failed-cross {
+        font-size: clamp(28px, 7vw, 45px);
+    }
+
+    .failed-heading {
+        font-size: clamp(1.2rem, 4.5vw, 1.9rem);
     }
 
     .failed-message {
-        font-size: clamp(0.9rem, 2.2vw, 1rem);
+        font-size: clamp(0.85rem, 2vw, 1rem);
     }
 
     .retry-button {
-        padding: clamp(12px, 2vh, 15px) clamp(25px, 6vw, 40px);
-        font-size: clamp(0.9rem, 1.8vw, 1rem);
+        padding: clamp(9px, 2vh, 14px) clamp(20px, 5.5vw, 38px);
+        font-size: clamp(0.85rem, 1.8vw, 1rem);
+        margin-top: clamp(10px, 2vh, 20px);
+    }
+}
+
+@media (max-width: 640px) {
+    .failed-page {
+        padding: clamp(14px, 3.5vh, 32px) clamp(10px, 3vw, 24px);
+    }
+
+    .failed-container {
+        padding: clamp(20px, 5vw, 50px) clamp(14px, 5vw, 40px);
+        gap: clamp(12px, 2.5vh, 24px);
+    }
+
+    .failed-circle {
+        width: clamp(55px, 13vw, 80px);
+        height: clamp(55px, 13vw, 80px);
+    }
+
+    .failed-cross {
+        font-size: clamp(25px, 6vw, 40px);
+    }
+
+    .failed-heading {
+        font-size: clamp(1.1rem, 4vw, 1.7rem);
+    }
+
+    .failed-message {
+        font-size: clamp(0.8rem, 1.8vw, 0.95rem);
     }
 }
 
 @media (max-width: 480px) {
     .failed-page {
-        padding: var(--padding-component-lg) var(--padding-component-sm);
+        padding: clamp(12px, 2.5vh, 24px) clamp(10px, 3vw, 16px);
     }
 
     .failed-container {
-        padding: var(--padding-component-lg) var(--padding-component-md);
-        gap: var(--gap-md);
+        padding: clamp(18px, 4vw, 40px) clamp(12px, 4vw, 32px);
+        gap: clamp(10px, 2vh, 20px);
     }
 
     .failed-circle {
-        width: clamp(60px, 15vw, 80px);
-        height: clamp(60px, 15vw, 80px);
+        width: clamp(50px, 12vw, 75px);
+        height: clamp(50px, 12vw, 75px);
     }
 
     .failed-cross {
-        font-size: clamp(28px, 6vw, 40px);
+        font-size: clamp(22px, 5vw, 36px);
     }
 
     .failed-heading {
-        font-size: clamp(1.2rem, 4vw, 1.5rem);
+        font-size: clamp(1rem, 3.5vw, 1.5rem);
     }
 
     .failed-message {
-        font-size: clamp(0.85rem, 2vw, 0.95rem);
+        font-size: clamp(0.75rem, 1.6vw, 0.9rem);
     }
 
     .retry-button {
-        padding: clamp(10px, 1.5vh, 12px) clamp(20px, 5vw, 30px);
-        font-size: clamp(0.85rem, 1.5vw, 0.95rem);
+        padding: clamp(8px, 1.5vh, 11px) clamp(16px, 4vw, 28px);
+        font-size: clamp(0.8rem, 1.5vw, 0.95rem);
+        margin-top: clamp(8px, 1.5vh, 16px);
     }
 }

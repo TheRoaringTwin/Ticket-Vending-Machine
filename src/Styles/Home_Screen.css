@@ -5,100 +5,108 @@
     display:flex;
     flex-direction:column;
     align-items:center;
-    justify-content:flex-start;
-    min-height:100vh;
-    padding-top:180px;
+    justify-content:center;
+    margin-top: clamp(90px, 15vh, 120px);
+    height: calc(100vh - clamp(90px, 15vh, 120px));
+    width: 100%;
+    padding: clamp(20px, 3vh, 40px) clamp(10px, 2vw, 30px);
+    box-sizing: border-box;
 }
 
-
 .home_Heading{
-    margin-top:100px;
+    margin-top: 0;
+    margin-bottom: clamp(15px, 3vh, 35px);
     color:white;
-    font-size:4.5rem;
+    font-size: clamp(1.4rem, 8vw, 3rem);
     font-weight:700;
     text-align:center;
     z-index:10;
-
+    padding: 0;
+    line-height: 1.2;
+    width: 100%;
 }
 
 .button-container{
     display:flex;
     justify-content:center;
-    gap:80px;
-    margin-top:120px;
+    align-items:center;
+    gap: clamp(20px, 5vw, 60px);
+    margin-top: clamp(8px, 2vh, 30px);
     flex-wrap:wrap;
+    padding: 0;
+    max-width: clamp(300px, 90vw, 650px);
+    width: 100%;
 }
 
 .metro-btn{
-    width:290px;
-    height:230px;
+    width: clamp(140px, 35vw, 300px);
+    height: clamp(100px, 25vh, 230px);
     display:flex;
     flex-direction:column;
     justify-content:center;
     align-items:center;
-    gap:25px;
-    border-radius:25px;
+    gap: clamp(10px, 2vh, 20px);
+    border-radius: var(--radius-xl);
     cursor:pointer;
     border:1px solid rgba(255,255,255,.18);
     background:rgba(255,255,255,.08);
     backdrop-filter:blur(15px);
     color:white;
-    font-size:1.8rem;
+    font-size: clamp(0.8rem, 2.5vw, 1.4rem);
     font-weight:bold;
-    transition:.3s;
-    box-shadow:
-    0 15px 35px rgba(0,0,0,.18);
+    transition: var(--transition-normal);
+    box-shadow: 0 15px 35px rgba(0,0,0,.18);
+    min-height: 44px;
+    min-width: 44px;
 }
 
 .metro-btn:hover{
-    transform:translateY(-8px);
+    transform:translateY(clamp(-2px, -0.5vh, -6px));
     background:rgba(255,255,255,.14);
-    box-shadow:
-    0 20px 45px rgba(0,0,0,.25);
+    box-shadow: 0 20px 45px rgba(0,0,0,.25);
+}
+
+.metro-btn:active{
+    transform:translateY(0);
 }
 
 .button-icon{
-    width:90px;
-    height:90px;
+    width: clamp(40px, 12vw, 90px);
+    height: clamp(40px, 12vw, 90px);
     object-fit:contain;
 }
 
 .language-btn{
     position:fixed;
-    right:40px;
-    bottom:40px;
+    right: clamp(12px, 3vw, 32px);
+    bottom: clamp(12px, 3vh, 32px);
     display:flex;
     flex-direction:row;
-    gap:15px;
+    gap: clamp(6px, 1vw, 16px);
     z-index:5000;
-
 }
 
 .language-btn button{
-    width:140px;
-    height:55px;
+    padding: clamp(8px, 1.5vh, 12px) clamp(12px, 2vw, 20px);
     border:none;
-    border-radius:14px;
+    border-radius: var(--radius-lg);
     background:white;
     color:#1458d4;
-    font-size:1.2rem;
+    font-size: clamp(0.7rem, 2vw, 1rem);
     font-weight:700;
     cursor:pointer;
-    transition:.3s;
-
+    transition: var(--transition-normal);
+    min-height: 44px;
+    min-width: 44px;
+    white-space: nowrap;
 }
 
 .language-btn button:hover{
-    transform:translateY(-3px);
+    transform:translateY(clamp(-1px, -0.5vh, -2px)) scale(1.05);
 }
 
-.language-btn button:hover{
-    transform:translateX(-5px);
+.language-btn button:active{
+    transform:translateY(0) scale(0.98);
 }
-
-.language-btn button:hover{
-    transform:scale(1.05);
-}
-
 
 

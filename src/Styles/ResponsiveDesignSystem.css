@@ -6,81 +6,83 @@
   /* ========================================================================
      SPACING SYSTEM - Responsive with clamp()
      ======================================================================== */
-  --spacing-xs: clamp(4px, 1vw, 8px);
-  --spacing-sm: clamp(8px, 1.5vw, 16px);
-  --spacing-md: clamp(12px, 2vw, 24px);
-  --spacing-lg: clamp(16px, 3vw, 32px);
-  --spacing-xl: clamp(20px, 4vw, 40px);
-  --spacing-2xl: clamp(24px, 5vw, 48px);
-  --spacing-3xl: clamp(32px, 6vw, 64px);
-  --spacing-4xl: clamp(40px, 8vw, 80px);
-  --spacing-5xl: clamp(48px, 10vw, 100px);
+  --spacing-xs: clamp(4px, 1.2vw, 8px);
+  --spacing-sm: clamp(8px, 1.8vw, 16px);
+  --spacing-md: clamp(12px, 2.5vw, 24px);
+  --spacing-lg: clamp(16px, 3.5vw, 32px);
+  --spacing-xl: clamp(20px, 4.5vw, 40px);
+  --spacing-2xl: clamp(24px, 5.5vw, 48px);
+  --spacing-3xl: clamp(32px, 7vw, 64px);
+  --spacing-4xl: clamp(40px, 9vw, 80px);
+  --spacing-5xl: clamp(48px, 11vw, 100px);
 
   /* Page padding */
-  --padding-page-x: clamp(15px, 4vw, 60px);
-  --padding-page-y: clamp(15px, 4vh, 40px);
+  --padding-page-x: clamp(12px, 5vw, 60px);
+  --padding-page-y: clamp(12px, 5vh, 40px);
 
   /* Component padding */
-  --padding-component-sm: clamp(20px, 3vw, 30px);
-  --padding-component-md: clamp(25px, 4vw, 35px);
-  --padding-component-lg: clamp(30px, 5vw, 50px);
+  --padding-component-sm: clamp(15px, 4vw, 30px);
+  --padding-component-md: clamp(20px, 5vw, 40px);
+  --padding-component-lg: clamp(25px, 6vw, 50px);
+  --padding-component-xl: clamp(30px, 7vw, 60px);
 
   /* ========================================================================
      FONT SIZES - Responsive Typography
      ======================================================================== */
-  --font-h1: clamp(1.875rem, 6vw, 3.5rem);
-  --font-h2: clamp(1.5rem, 5vw, 2.8rem);
-  --font-h3: clamp(1.25rem, 4vw, 2.2rem);
-  --font-body-base: clamp(0.95rem, 2vw, 1.1rem);
-  --font-body-sm: clamp(0.85rem, 1.8vw, 1rem);
-  --font-button: clamp(0.9rem, 2vw, 1.1rem);
+  --font-h1: clamp(1.5rem, 5vw, 3.5rem);
+  --font-h2: clamp(1.25rem, 4vw, 2.5rem);
+  --font-h3: clamp(1.1rem, 3.5vw, 2rem);
+  --font-body-base: clamp(0.9rem, 2.2vw, 1.1rem);
+  --font-body-sm: clamp(0.8rem, 2vw, 1rem);
+  --font-button: clamp(0.85rem, 2.2vw, 1.05rem);
 
   /* Navbar specific */
-  --font-navbar-station: clamp(1.5rem, 5vw, 3rem);
-  --font-navbar-time: clamp(0.95rem, 3vw, 1.8rem);
-  --font-navbar-dropdown-item: clamp(0.95rem, 2vw, 1.1rem);
+  --font-navbar-station: clamp(1.2rem, 4.5vw, 3rem);
+  --font-navbar-time: clamp(0.85rem, 2.8vw, 1.8rem);
+  --font-navbar-dropdown-item: clamp(0.9rem, 2.2vw, 1.1rem);
 
   /* ========================================================================
      CONTAINER SIZES
      ======================================================================== */
   --container-xs: clamp(280px, 90vw, 400px);
   --container-sm: clamp(300px, 90vw, 600px);
-  --container-md: clamp(400px, 90vw, 800px);
-  --container-lg: clamp(600px, 90vw, 1000px);
-  --container-2xl: clamp(800px, 90vw, 1200px);
+  --container-md: clamp(350px, 90vw, 800px);
+  --container-lg: clamp(500px, 90vw, 1000px);
+  --container-2xl: clamp(600px, 90vw, 1200px);
 
   /* ========================================================================
      BUTTON SIZING
      ======================================================================== */
   --button-height-sm: clamp(40px, 8vh, 44px);
-  --button-height-md: clamp(45px, 10vh, 55px);
-  --button-height-lg: clamp(50px, 12vh, 65px);
+  --button-height-md: clamp(44px, 9vh, 54px);
+  --button-height-lg: clamp(50px, 11vh, 65px);
 
-  --button-padding-y: clamp(10px, 1.8vw, 15px);
-  --button-padding-x: clamp(20px, 4vw, 30px);
+  --button-padding-y: clamp(10px, 2vw, 16px);
+  --button-padding-x: clamp(16px, 5vw, 32px);
 
   /* ========================================================================
      GAPS & MARGINS
      ======================================================================== */
-  --gap-sm: clamp(8px, 1.5vw, 16px);
-  --gap-md: clamp(12px, 2vw, 24px);
-  --gap-lg: clamp(16px, 3vw, 32px);
-  --gap-xl: clamp(20px, 4vw, 40px);
-  --gap-2xl: clamp(24px, 5vw, 48px);
-  --gap-3xl: clamp(32px, 6vw, 64px);
+  --gap-xs: clamp(4px, 1vw, 8px);
+  --gap-sm: clamp(8px, 1.8vw, 16px);
+  --gap-md: clamp(12px, 2.5vw, 24px);
+  --gap-lg: clamp(16px, 4vw, 32px);
+  --gap-xl: clamp(20px, 5vw, 40px);
+  --gap-2xl: clamp(24px, 6vw, 48px);
+  --gap-3xl: clamp(32px, 8vw, 64px);
 
   /* Content margins */
-  --margin-navbar-height: 140px;
-  --margin-content-vertical: clamp(20px, 4vh, 60px);
-  --margin-content-horizontal: clamp(15px, 4vw, 60px);
+  --margin-navbar-height: clamp(120px, 20vh, 140px);
+  --margin-content-vertical: clamp(16px, 5vh, 60px);
+  --margin-content-horizontal: clamp(12px, 5vw, 60px);
 
   /* ========================================================================
      BORDER RADIUS
      ======================================================================== */
-  --radius-sm: 4px;
-  --radius-md: 8px;
-  --radius-lg: 12px;
-  --radius-xl: 20px;
+  --radius-sm: clamp(4px, 0.5vw, 6px);
+  --radius-md: clamp(6px, 1vw, 10px);
+  --radius-lg: clamp(12px, 1.5vw, 20px);
+  --radius-xl: clamp(16px, 2vw, 25px);
   --radius-full: 9999px;
 
   /* ========================================================================
