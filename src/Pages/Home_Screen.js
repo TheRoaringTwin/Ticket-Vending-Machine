@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import translations from '../Components/Translation';
 import Navbar from '../Components/Navbar';
 import Languagebutton from '../Components/Language-button';
+import Background from '../Components/Background';
 import { useStation } from '../Context/StationContext';
 import { useFlow } from '../Context/FlowContext';
 import '../Styles/Home_Screen.css';
@@ -74,13 +75,12 @@ const Home_Screen = () => {
     };
 
     return (
-        <>
+        <Background>
             <Navbar language={language} isHomeScreen={true} />
-            <WelcomeContainer onPurchaseClick={handlePurchaseTicket} onBalanceClick={handleBalanceCheck} language={language} currentStation={currentStation} 
+            <WelcomeContainer onPurchaseClick={handlePurchaseTicket} onBalanceClick={handleBalanceCheck} language={language} currentStation={currentStation}
             onStationChange={handleStationChange} />
             <Languagebutton language={language} setLanguage={setLanguage} />
-            <img src="/train.png" className='train-image' alt="train" />
-        </>
+        </Background>
     );
 }
 

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import Navbar from "../Components/Navbar";
 import CardDetailsUI from "../Components/Card_DetailsUI";
+import Background from "../Components/Background";
 import translations from "../Components/Translation";
 import { useFlow } from "../Context/FlowContext";
 
@@ -56,7 +57,7 @@ function Card_Details() {
 
     return (
 
-        <>
+        <Background>
             <Navbar language={language} />
 
             <CardDetailsUI
@@ -75,9 +76,7 @@ function Card_Details() {
 
             />
 
-            <img src="/train.png" className="train-image" alt="train" />
-
-        </>
+        </Background>
 
     );
 

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "../Components/Navbar";
 import CheckingBalanceUI from "../Components/Checking_BalanceUI";
+import Background from "../Components/Background";
 import translations from "../Components/Translation";
 import { useLocation, useNavigate } from "react-router-dom";
 
@@ -36,7 +37,7 @@ function Checking_Balance() {
 
     return (
 
-        <>
+        <Background>
 
             <Navbar language={language} />
 
@@ -50,9 +51,7 @@ function Checking_Balance() {
 
             />
 
-            <img src="/train.png" className="train-image" alt="train" />
-
-        </>
+        </Background>
 
     );
 

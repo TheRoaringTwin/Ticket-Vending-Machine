@@ -2,6 +2,7 @@ import React, { useEffect, useState, useCallback } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import Navbar from "../Components/Navbar";
 import TicketPrintUI from "../Components/Ticket_PrintUI";
+import Background from "../Components/Background";
 import translations from "../Components/Translation";
 import { useFlow } from "../Context/FlowContext";
 import { useInvoice } from "../Context/InvoiceContext";
@@ -50,7 +51,7 @@ function Ticket_Print() {
     }, [handleGoHome]);
 
     return (
-        <>
+        <Background>
             <Navbar language={language} />
             <TicketPrintUI text={text} />
 
@@ -68,8 +69,7 @@ function Ticket_Print() {
                 </div>
             )}
 
-            <img src="/train.png" className="train-image" alt="train" />
-        </>
+        </Background>
     );
 }
 

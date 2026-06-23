@@ -2,6 +2,7 @@ import React, { useEffect, useState, useMemo } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import Navbar from "../Components/Navbar";
 import ProcessingPaymentUI from "../Components/Processing_PaymentUI";
+import Background from "../Components/Background";
 import translations from "../Components/Translation";
 
 function Processing_Payment() {
@@ -49,13 +50,12 @@ function Processing_Payment() {
     };
 
     return (
-        <>
+        <Background>
             <Navbar language={language} />
 
             <ProcessingPaymentUI timeLeft={timeLeft} onBack={handleBack} language={language} text={text} />
 
-            <img src="/train.png" className="train-image" alt="train" />
-        </>
+        </Background>
     );
 }
 

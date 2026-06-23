@@ -87,7 +87,11 @@
 }
 
 .language-btn button{
-    padding: clamp(8px, 1.5vh, 12px) clamp(12px, 2vw, 20px);
+    width: clamp(80px, 15vw, 110px);
+    height: clamp(40px, 8vh, 50px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border:none;
     border-radius: var(--radius-lg);
     background:white;
@@ -96,8 +100,6 @@
     font-weight:700;
     cursor:pointer;
     transition: var(--transition-normal);
-    min-height: 44px;
-    min-width: 44px;
     white-space: nowrap;
 }
 

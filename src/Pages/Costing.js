@@ -2,6 +2,7 @@ import React, { useState, useEffect, useMemo } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import Navbar from "../Components/Navbar";
 import CostingUI from "../Components/CostingUI";
+import Background from "../Components/Background";
 import translations from "../Components/Translation";
 import { useFlow } from "../Context/FlowContext";
 import { useCosting } from "../Context/CostingContext";
@@ -91,26 +92,22 @@ const Costing = () => {
     };
 
     return(
-        <div className="costing-page">
-            <Navbar language={language} />
-            <CostingUI
-                text={text}
-                journeyType={journeyType}
-                setJourneyType={setJourneyType}
-                passengers={passengers}
-                increasePassenger={increasePassenger}
-                decreasePassenger={decreasePassenger}
-                totalFare={totalFare}
-                onBack={handleBack}
-                onContinue={handleContinue}
-            />
-
-            <img
-                src="/train.png"
-                className="train-image"
-                alt="train"
-            />
-        </div>
+        <Background>
+            <div className="costing-page">
+                <Navbar language={language} />
+                <CostingUI
+                    text={text}
+                    journeyType={journeyType}
+                    setJourneyType={setJourneyType}
+                    passengers={passengers}
+                    increasePassenger={increasePassenger}
+                    decreasePassenger={decreasePassenger}
+                    totalFare={totalFare}
+                    onBack={handleBack}
+                    onContinue={handleContinue}
+                />
+            </div>
+        </Background>
     );
 };
 

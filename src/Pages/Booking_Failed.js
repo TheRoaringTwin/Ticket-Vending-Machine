@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import Navbar from "../Components/Navbar";
 import BookingFailedUI from "../Components/Booking_FailedUI";
+import Background from "../Components/Background";
 import translations from "../Components/Translation";
 
 function Booking_Failed() {
@@ -19,7 +20,7 @@ function Booking_Failed() {
 
     return (
 
-        <>
+        <Background>
 
             <Navbar language={language} />
 
@@ -31,9 +32,7 @@ function Booking_Failed() {
 
             />
 
-            <img src="/train.png" className="train-image" alt="train" />
-
-        </>
+        </Background>
 
     );
 

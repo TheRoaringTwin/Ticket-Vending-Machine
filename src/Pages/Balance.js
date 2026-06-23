@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import Navbar from "../Components/Navbar";
 import BalanceUI from "../Components/BalanceUI";
+import Background from "../Components/Background";
 import translations from "../Components/Translation";
 import { useFlow } from "../Context/FlowContext";
 import '../Styles/Balance.css';
@@ -38,7 +39,7 @@ function Balance() {
 
     return (
 
-        <>
+        <Background>
 
             <Navbar language={language} />
 
@@ -53,9 +54,7 @@ function Balance() {
 
             />
 
-            <img src="/train.png" className="train-image" alt="train" />
-
-        </>
+        </Background>
 
     );
 

@@ -3,6 +3,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import Navbar from "../Components/Navbar";
 import StationUI from "../Components/StationUI";
 import AlertModal from "../Components/AlertModal";
+import Background from "../Components/Background";
 import stations from "../Data/Stations";
 import translations from "../Components/Translation";
 import { useStation } from "../Context/StationContext";
@@ -63,25 +64,26 @@ const StationSelection = () => {
     };
 
     return (
-        <div className="station-selection-page">
-            <Navbar language={language} />
-            <StationUI
-                language={language}
-                text={text}
-                currentStation={currentStation}
-                stations={stations}
-                selectedStation={selectedStation}
-                onStationSelect={handleStationSelect}
-                onContinue={handleContinue}
-                onBack={handleBack}
-            />
-            <AlertModal
-                message={text.selectStationMessage}
-                isOpen={showAlert}
-                onClose={() => setShowAlert(false)}
-            />
-            <img src="/train.png" className='train-image' alt="train" />
-        </div>
+        <Background>
+            <div className="station-selection-page">
+                <Navbar language={language} />
+                <StationUI
+                    language={language}
+                    text={text}
+                    currentStation={currentStation}
+                    stations={stations}
+                    selectedStation={selectedStation}
+                    onStationSelect={handleStationSelect}
+                    onContinue={handleContinue}
+                    onBack={handleBack}
+                />
+                <AlertModal
+                    message={text.selectStationMessage}
+                    isOpen={showAlert}
+                    onClose={() => setShowAlert(false)}
+                />
+            </div>
+        </Background>
     );
 
 };

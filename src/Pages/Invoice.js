@@ -2,6 +2,7 @@ import React, { useState, useEffect, useMemo } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import Navbar from "../Components/Navbar";
 import InvoiceUI from "../Components/InvoiceUI";
+import Background from "../Components/Background";
 import translations from "../Components/Translation";
 import { useFlow } from "../Context/FlowContext";
 import { useInvoice } from "../Context/InvoiceContext";
@@ -103,7 +104,7 @@ function Invoice() {
   };
 
   return (
-    <>
+    <Background>
       <Navbar language={language} />
 
       <div className="invoice-main-wrapper">
@@ -135,8 +136,7 @@ function Invoice() {
         </div>
       </div>
 
-      <img src="/train.png" className="train-image" alt="train" />
-    </>
+    </Background>
   );
 }
 

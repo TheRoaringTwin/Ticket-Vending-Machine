@@ -1,7 +1,7 @@
 import React from "react";
 import "../Styles/QR_Payment.css";
 
-function QRPaymentUI({ onBack }) {
+function QRPaymentUI({ onBack, timeLeft }) {
 
     return (
 
@@ -34,6 +34,12 @@ function QRPaymentUI({ onBack }) {
                 <p className="qr-text">
 
                     Scan the QR Code to Pay
+
+                </p>
+
+                <p className="qr-timer">
+
+                    {timeLeft}
 
                 </p>
 

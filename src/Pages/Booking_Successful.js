@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import Navbar from "../Components/Navbar";
 import BookingSuccessfulUI from "../Components/Booking_SuccesfulUI";
+import Background from "../Components/Background";
 import translations from "../Components/Translation";
 import "../Styles/Booking_Successful.css";
 
@@ -23,7 +24,7 @@ function Booking_Successful() {
 
     return (
 
-        <>
+        <Background>
 
             <Navbar language={language} />
 
@@ -33,9 +34,7 @@ function Booking_Successful() {
                 text={text}
             />
 
-            <img src="/train.png" className="train-image" alt="train" />
-
-        </>
+        </Background>
 
     );
 
