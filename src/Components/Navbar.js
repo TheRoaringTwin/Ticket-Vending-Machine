@@ -7,6 +7,7 @@ import { useStation } from '../Context/StationContext'
 export default function Navbar({stationName, language = 'english', isHomeScreen = false}) {
   const { currentStation, updateStation } = useStation();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const dropdownRef = React.useRef(null);
 
   const handleStationSelect = (stationName) => {
     updateStation(stationName);
@@ -19,9 +20,25 @@ export default function Navbar({stationName, language = 'english', isHomeScreen 
     }
   };
 
+  React.useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsDropdownOpen(false);
+      }
+    };
+
+    if (isDropdownOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isDropdownOpen]);
+
   return (
     <nav className='navbar'>
-      <div className='station-dropdown-wrapper'>
+      <div className='station-dropdown-wrapper' ref={dropdownRef}>
         {isHomeScreen ? (
           <>
             <button

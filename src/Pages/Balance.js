@@ -10,12 +10,12 @@ function Balance() {
 
     const location = useLocation();
     const navigate = useNavigate();
-    const { goToNextPage, currentPage } = useFlow();
+    const { goToNextPage, currentPage, resetFlow } = useFlow();
     const language = location.state?.language || "english";
     const text = translations[language];
     const cardNumber = location.state?.cardNumber || "";
 
-    const mockBalance = 5250.75;
+    const mockBalance = 'xxx.xx';
 
     useEffect(() => {
         if (currentPage === 1) {
@@ -25,6 +25,7 @@ function Balance() {
 
     useEffect(() => {
         const timer = setTimeout(() => {
+            resetFlow();
             navigate("/", {
                 state: {
                     language: language
@@ -33,7 +34,7 @@ function Balance() {
         }, 9000);
 
         return () => clearTimeout(timer);
-    }, [navigate, language]);
+    }, [navigate, language, resetFlow]);
 
     return (
 

@@ -15,7 +15,7 @@ const PurchaseBotton = ({onclick, language}) => {
               <img src="/ticket.png" className='button-icon' alt="ticket icon" />
               <span>{currentText.purchaseTicket}</span>
           </button>
-      );
+      ); 
    };
 
 const BalanceCheck  = ({onclick, language}) => {
@@ -76,7 +76,8 @@ const Home_Screen = () => {
     return (
         <>
             <Navbar language={language} isHomeScreen={true} />
-            <WelcomeContainer onPurchaseClick={handlePurchaseTicket} onBalanceClick={handleBalanceCheck} language={language} currentStation={currentStation} onStationChange={handleStationChange} />
+            <WelcomeContainer onPurchaseClick={handlePurchaseTicket} onBalanceClick={handleBalanceCheck} language={language} currentStation={currentStation} 
+            onStationChange={handleStationChange} />
             <Languagebutton language={language} setLanguage={setLanguage} />
             <img src="/train.png" className='train-image' alt="train" />
         </>
