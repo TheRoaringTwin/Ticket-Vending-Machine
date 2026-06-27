@@ -22,64 +22,47 @@ function Card_Details() {
 
     const [cardNumber, setCardNumber] = useState("");
     const [pin, setPin] = useState("");
-
-    // Get payment data from Invoice page
     const paymentData = location.state || {};
 
     const handleContinue = () => {
-
         if (cardNumber.length !== 16) {
             alert("Please enter a valid 16 digit card number.");
             return;
         }
-
         if (pin.length !== 4) {
             alert("Please enter a valid 4 digit PIN.");
             return;
         }
-
         navigate("/Processing_Payment", {
             state: {
                 ...paymentData,
                 cardNumber,
                 pin,
+                language,
             },
         });
 
     };
 
     const handleBack = () => {
-
         goToPreviousPage();
-        navigate("/Invoice", { state: paymentData });
-
+        navigate("/Invoice", { state: { ...paymentData, language } });
     };
-
     return (
 
         <Background>
             <Navbar language={language} />
-
             <CardDetailsUI
-
                 cardNumber={cardNumber}
                 setCardNumber={setCardNumber}
-
                 pin={pin}
                 setPin={setPin}
-
                 handleContinue={handleContinue}
                 handleBack={handleBack}
-
                 language={language}
                 text={text}
-
             />
-
         </Background>
-
     );
-
 }
-
 export default Card_Details;

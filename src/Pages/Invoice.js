@@ -7,6 +7,7 @@ import translations from "../Components/Translation";
 import { useFlow } from "../Context/FlowContext";
 import { useInvoice } from "../Context/InvoiceContext";
 import { useCosting } from "../Context/CostingContext";
+import { getTranslatedStationName } from "../Data/Stations";
 import "../Styles/Invoice.css";
 
 
@@ -23,7 +24,6 @@ function Invoice() {
     }
   }, [currentPage, goToNextPage]);
 
-  // Get data from location.state or context
   const currentStation = location.state?.currentStation || invoiceData.currentStation || "Unknown";
   const selectedStationObj = useMemo(() =>
     location.state?.selectedStation || invoiceData.selectedStation || costingData.selectedStation || {},
@@ -35,10 +35,8 @@ function Invoice() {
   const totalFare = location.state?.totalFare || invoiceData.totalFare || 0;
   const initialLanguage = location.state?.language || invoiceData.language || costingData.language || "english";
 
-  // State management
   const [language] = useState(initialLanguage);
 
-  // Store data in context whenever it changes
   useEffect(() => {
     updateInvoiceData({
       currentStation,
@@ -62,7 +60,6 @@ function Invoice() {
   }, [currentStation, selectedStationObj]);
   const farePerPassenger = journeyType === "oneway" ? baseFare : baseFare * 1.5;
 
-  // Handle back navigation
   const handleBack = () => {
     goToPreviousPage();
     navigate("/Costing", {
@@ -73,7 +70,6 @@ function Invoice() {
     });
   };
 
-  // Handle card payment
   const handleCardPayment = () => {
     navigate("/Card_Details", {
       state: {
@@ -88,7 +84,6 @@ function Invoice() {
     });
   };
 
-  // Handle QR payment
   const handleQRPayment = () => {
     navigate("/QR_Payment", {
       state: {
@@ -109,8 +104,8 @@ function Invoice() {
 
       <div className="invoice-main-wrapper">
         <InvoiceUI
-          fromStation={currentStation}
-          toStation={selectedStationName}
+          fromStation={getTranslatedStationName(currentStation, language)}
+          toStation={getTranslatedStationName(selectedStationName, language)}
           passengers={passengers}
           ticketType={journeyType === "oneway" ? text.oneWay : text.roundTrip}
           farePerPassenger={farePerPassenger}
@@ -121,16 +116,16 @@ function Invoice() {
         />
 
         <div className="payment-options-container">
-          <h3 className="payment-method-heading">Choose Payment Method</h3>
+          <h3 className="payment-method-heading">{text.selectPaymentMethod}</h3>
 
           <div className="invoice-payment-buttons">
             <button className="invoice-payment-btn card-btn" onClick={handleCardPayment}>
               <span className="btn-icon">💳</span>
-              <span className="btn-text">Card Payment</span>
+              <span className="btn-text">{text.cardPayment}</span>
             </button>
             <button className="invoice-payment-btn qr-btn" onClick={handleQRPayment}>
               <span className="btn-icon">📱</span>
-              <span className="btn-text">QR Payment</span>
+              <span className="btn-text">{text.upiPayment}</span>
             </button>
           </div>
         </div>

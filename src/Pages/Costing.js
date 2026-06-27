@@ -56,7 +56,6 @@ const Costing = () => {
     }, [journeyType, passengers, updateCostingData]);
 
     const increasePassenger = () => {
-
         if(passengers < 10){
             setPassengers(passengers + 1);
         }

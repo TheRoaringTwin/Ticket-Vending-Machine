@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import TimeDisplay from './TimeDispaly'
 import ProgressIndicator from './ProgressIndicator'
-import stations from '../Data/Stations'
+import stations, { getTranslatedStationName } from '../Data/Stations'
 import { useStation } from '../Context/StationContext'
 
 export default function Navbar({stationName, language = 'english', isHomeScreen = false}) {
@@ -46,7 +46,7 @@ export default function Navbar({stationName, language = 'english', isHomeScreen 
               onClick={handleDropdownClick}
               title='Click to change station'
             >
-              {currentStation}
+              {getTranslatedStationName(currentStation, language)}
               <span className={`dropdown-arrow ${isDropdownOpen ? 'open' : ''}`}>▼</span>
             </button>
             {isDropdownOpen && (
@@ -57,14 +57,14 @@ export default function Navbar({stationName, language = 'english', isHomeScreen 
                     className='dropdown-item'
                     onClick={() => handleStationSelect(station.name)}
                   >
-                    {station.name}
+                    {getTranslatedStationName(station.name, language)}
                   </button>
                 ))}
               </div>
             )}
           </>
         ) : (
-          <span className='station-name-text'>{currentStation}</span>
+          <span className='station-name-text'>{getTranslatedStationName(currentStation, language)}</span>
         )}
       </div>
       <ProgressIndicator language={language} />

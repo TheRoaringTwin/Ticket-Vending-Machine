@@ -1,12 +1,16 @@
 import React, { useState, useEffect, useCallback, useRef } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useFlow } from "../Context/FlowContext";
+import translations from "./Translation";
 import "../Styles/SessionTimeout.css";
 
 const SessionTimeOut = ({ children }) => {
   const navigate = useNavigate();
   const location = useLocation();
   const { resetFlow } = useFlow();
+
+  const language = location.state?.language || "english";
+  const text = translations[language];
 
   const [showCountdown, setShowCountdown] = useState(false);
   const [countdownTime, setCountdownTime] = useState(60);
@@ -30,7 +34,6 @@ const SessionTimeOut = ({ children }) => {
     setShowCountdown(false);
     setCountdownTime(60);
 
-
     inactivityTimer.current = setTimeout(() => {
       setShowCountdown(true);
       setCountdownTime(60);
@@ -40,7 +43,6 @@ const SessionTimeOut = ({ children }) => {
           if (prev <= 1) {
             clearInterval(countdownTimer.current);
             setShowCountdown(false);
-            // Reset flow and redirect to home
             resetFlow();
             navigate("/");
             return 0;
@@ -66,7 +68,6 @@ const SessionTimeOut = ({ children }) => {
       resetSessionTimeout();
     };
 
-    
     const events = ["mousedown", "keydown", "scroll", "touchstart", "click"];
 
     events.forEach((event) => {
@@ -86,7 +87,6 @@ const SessionTimeOut = ({ children }) => {
     setShowCountdown(false);
     resetSessionTimeout();
   };
-
   return (
     <>
       {children}
@@ -94,11 +94,11 @@ const SessionTimeOut = ({ children }) => {
         <div className="session-timeout-overlay" onClick={handleModalClick}>
           <div className="session-timeout-modal countdown-modal" onClick={handleModalClick}>
             <div className="session-timeout-icon">⏱️</div>
-            <h2 className="session-timeout-title">Session Expiring</h2>
+            <h2 className="session-timeout-title">{text.sessionExpiring}</h2>
             <p className="session-timeout-message">
-              Redirecting in <span className="countdown-number">{countdownTime}</span> seconds
+              {text.redirectingIn} <span className="countdown-number">{countdownTime}</span> {text.seconds}
             </p>
-            <p className="session-timeout-hint">Click to continue your session</p>
+            <p className="session-timeout-hint">{text.clickToContinue}</p>
           </div>
         </div>
       )}

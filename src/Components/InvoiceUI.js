@@ -20,9 +20,7 @@ function InvoiceUI({
         <h1 className="invoice-heading">
           {text?.ticketInvoice || 'Ticket Invoice'}
         </h1>
-
-        {/* Journey Details */}
-
+        
         <div className="invoice-section">
 
           <h2>{text?.journeyDetails || 'Journey Details'}</h2>
@@ -48,8 +46,6 @@ function InvoiceUI({
           </div>
 
         </div>
-
-        {/* Fare Details */}
 
         <div className="invoice-section">
 

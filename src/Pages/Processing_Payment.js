@@ -13,23 +13,20 @@ function Processing_Payment() {
     const language = location.state?.language || "english";
     const text = translations[language];
 
-    // Get data from Invoice page
     const paymentData = useMemo(() => location.state || {}, [location.state]);
-    const BAD_CARD = "1234567891234567"; // Bad card number without dashes
+    const BAD_CARD = "1234567891234567";
 
     useEffect(() => {
 
         const timer = setTimeout(() => {
 
-            // Check if the card is the bad card
             const cardNumber = paymentData.cardNumber?.replace(/-/g, "") || "";
             const isBadCard = cardNumber === BAD_CARD;
 
-            // Navigate to appropriate page
             if (isBadCard) {
-                navigate("/booking-failed", { state: paymentData });
+                navigate("/booking-failed", { state: { ...paymentData, language } });
             } else {
-                navigate("/booking-completion", { state: paymentData });
+                navigate("/booking-completion", { state: { ...paymentData, language } });
             }
 
         }, 5000);
@@ -43,18 +40,16 @@ function Processing_Payment() {
             clearInterval(countdownInterval);
         };
 
-    }, [navigate, paymentData]);
+    }, [navigate, paymentData, language]);
 
     const handleBack = () => {
-        navigate("/Invoice", { state: paymentData });
+        navigate("/Invoice", { state: { ...paymentData, language } });
     };
 
     return (
         <Background>
             <Navbar language={language} />
-
             <ProcessingPaymentUI timeLeft={timeLeft} onBack={handleBack} language={language} text={text} />
-
         </Background>
     );
 }

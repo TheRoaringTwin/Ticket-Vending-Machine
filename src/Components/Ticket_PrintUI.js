@@ -31,7 +31,7 @@ function Ticket_PrintUI({ text }) {
                 </div>
 
                 <p className="print-message">
-                    Please be patient while the receipt is being printed
+                    {text.printingReceipt}
                 </p>
 
                 <div className="print-loader">

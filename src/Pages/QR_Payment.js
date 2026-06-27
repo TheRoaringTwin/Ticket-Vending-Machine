@@ -1,14 +1,18 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import Navbar from "../Components/Navbar";
 import QRPaymentUI from "../Components/QR_PaymentUI";
 import Background from "../Components/Background";
+import translations from "../Components/Translation";
 import { useFlow } from "../Context/FlowContext";
 
 function QR_Payment() {
 
     const navigate = useNavigate();
+    const location = useLocation();
     const { goToNextPage, currentPage } = useFlow();
+    const language = location.state?.language || "english";
+    const text = translations[language];
     const [timeLeft, setTimeLeft] = useState(120);
 
     useEffect(() => {
@@ -19,11 +23,11 @@ function QR_Payment() {
 
     useEffect(() => {
         const timer = setTimeout(() => {
-            navigate("/Processing_Payment");
+            navigate("/Processing_Payment", { state: { language } });
         }, 7000);
 
         return () => clearTimeout(timer);
-    }, [navigate]);
+    }, [navigate, language]);
 
     useEffect(() => {
         const countdownInterval = setInterval(() => {
@@ -34,7 +38,7 @@ function QR_Payment() {
     }, []);
 
     const handleBack = () => {
-        navigate("/Invoice");
+        navigate("/Invoice", { state: { language } });
     };
 
     const minutes = Math.floor(timeLeft / 60);
@@ -43,11 +47,8 @@ function QR_Payment() {
     return (
 
         <Background>
-
-            <Navbar />
-
-            <QRPaymentUI onBack={handleBack} timeLeft={`${minutes}:${seconds.toString().padStart(2, '0')}`} />
-
+            <Navbar language={language} />
+            <QRPaymentUI onBack={handleBack} timeLeft={`${minutes}:${seconds.toString().padStart(2, '0')}`} language={language} text={text} />
         </Background>
 
     );

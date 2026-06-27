@@ -20,15 +20,12 @@ const StationSelection = () => {
             goToNextPage();
         }
     }, [currentPage, goToNextPage]);
-    // Get language from home screen or default to english
+
     const language = location.state?.language || "english";
-    // Selected station - use context value if available
     const [selectedStation, setSelectedStation] = useState(contextSelectedStation || null);
-    // Alert modal state
     const [showAlert, setShowAlert] = useState(false);
-    // Translation object
     const text = translations[language];
-    // Only one station can be selected
+
     const handleStationSelect = (station) => {
 
         if (selectedStation === station) {
@@ -40,7 +37,7 @@ const StationSelection = () => {
         }
 
     };
-    // Continue Button
+
     const handleContinue = () => {
 
         if (!selectedStation) {
@@ -56,7 +53,6 @@ const StationSelection = () => {
         });
     };
     
-    // Back button handler
     const handleBack = () => {
         updateSelectedStation(null);
         goToPreviousPage();

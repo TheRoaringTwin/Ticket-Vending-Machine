@@ -54,21 +54,19 @@ function Ticket_Print() {
         <Background>
             <Navbar language={language} />
             <TicketPrintUI text={text} />
-
             {showPopup && (
                 <div className="popup-overlay">
                     <div className="popup-container">
                         <div className="popup-icon">
                             ✓
                         </div>
-                        <h2 className="popup-title">Your Ticket Has Been Printed</h2>
+                        <h2 className="popup-title">{text.ticketPrinted}</h2>
                         <p className="popup-message">
-                            Please collect your ticket
+                            {text.collectTicket}
                         </p>
                     </div>
                 </div>
             )}
-
         </Background>
     );
 }

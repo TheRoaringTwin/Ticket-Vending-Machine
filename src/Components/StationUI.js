@@ -1,5 +1,6 @@
 import React from 'react'
 import '../Styles/Station_Selection.css';
+import { getTranslatedStationName } from '../Data/Stations';
 
 const StationUI = ({
     stations,
@@ -8,7 +9,8 @@ const StationUI = ({
     onStationSelect,
     text,
     onBack,
-    onContinue
+    onContinue,
+    language = 'english'
 }) => {
     const svgRef = React.useRef(null);
     const pathRef = React.useRef(null);
@@ -19,7 +21,6 @@ const StationUI = ({
 
     const STATION_RADIUS = 40;
 
-    // Define S-shaped metro path using cubic Bézier curves
     const getMetroPathData = () => {
         const width = 1600;
         const height = 700;
@@ -30,7 +31,6 @@ const StationUI = ({
         const midX = width / 2;
         const midY = height / 2;
 
-        // S-curve: bottom-left to top-right with smooth curves
         return `
             M ${startX} ${startY}
             C ${startX + 200} ${startY - 120}, ${midX - 250} ${midY + 100}, ${midX - 100} ${midY}
@@ -50,7 +50,6 @@ const StationUI = ({
         return currentIdx > min && currentIdx < max;
     };
 
-    // Calculate station positions along the SVG path
     React.useEffect(() => {
         if (pathRef.current && stations.length > 0) {
             const pathLength = pathRef.current.getTotalLength();
@@ -67,7 +66,6 @@ const StationUI = ({
         }
     }, [stations]);
 
-    // Generate travel path animation when destination is selected
     React.useEffect(() => {
         if (!selectedStation || !pathRef.current || stations.length < 2) {
             setTravelPathData('');
@@ -92,7 +90,6 @@ const StationUI = ({
         const destDistance = destProgress * pathLength;
         const travelDistance = Math.abs(destDistance - sourceDistance);
 
-        // Generate path from source to destination
         let pathData = '';
         const steps = Math.ceil(travelDistance / 5);
 
@@ -117,7 +114,6 @@ const StationUI = ({
                 <h1 className='station-heading'>{text.selectStation}</h1>
                 <p className='station-subtitle'>{text.selectStationSubtitle}</p>
 
-                {/* Metro Map */}
                 <div className='metro-map-wrapper'>
                     <svg
                         ref={svgRef}
@@ -131,7 +127,6 @@ const StationUI = ({
                             </filter>
                         </defs>
 
-                        {/* S-shaped metro line */}
                         <path
                             ref={pathRef}
                             d={getMetroPathData()}
@@ -143,7 +138,6 @@ const StationUI = ({
                             strokeLinejoin='round'
                         />
 
-                        {/* Travelling animation path - solid progress line */}
                         {travelPathData && (
                             <path
                                 ref={travelPathRef}
@@ -162,7 +156,6 @@ const StationUI = ({
                             />
                         )}
 
-                        {/* Stations positioned on the path */}
                         {stations.map((station) => {
                             const pos = stationPositions[station.id];
                             if (!pos) return null;
@@ -196,7 +189,6 @@ const StationUI = ({
                             );
                         })}
 
-                        {/* Station labels */}
                         {stations.map((station, index) => {
                             const pos = stationPositions[station.id];
                             if (!pos) return null;
@@ -213,7 +205,7 @@ const StationUI = ({
                                     textAnchor='middle'
                                     dominantBaseline='middle'
                                 >
-                                    {station.name}
+                                    {getTranslatedStationName(station.name, language)}
                                 </text>
                             );
                         })}

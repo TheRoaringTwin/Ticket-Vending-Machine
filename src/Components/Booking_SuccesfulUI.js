@@ -20,7 +20,7 @@ function BookingSuccessfulUI({ handlePrint, language, text }) {
                     className="home-button"
                     onClick={handlePrint}
                 >
-                    Print Ticket Receipt
+                    {text.printTicket}
                 </button>
             </div>
         </div>

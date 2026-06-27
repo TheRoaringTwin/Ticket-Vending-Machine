@@ -1,3 +1,5 @@
+import translations from '../Components/Translation';
+
 const stations = [
     {id : 1, name: 'Station 1', code: '001'},
     {id : 2, name: 'Station 2', code: '002'},
@@ -9,5 +11,10 @@ const stations = [
     {id : 8, name: 'Station 8', code: '008'},
     {id : 9, name: 'Station 9', code: '009'},
 ];
+
+export const getTranslatedStationName = (stationNameOrId, language = 'english') => {
+    const translationKey = `station${stationNameOrId.toString().split(' ').pop()}`;
+    return translations[language]?.[translationKey] || stationNameOrId;
+};
 
 export default stations

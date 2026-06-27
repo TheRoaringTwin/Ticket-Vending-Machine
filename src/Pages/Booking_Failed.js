@@ -14,7 +14,7 @@ function Booking_Failed() {
 
     const handleRetry = () => {
 
-        navigate("/invoice");
+        navigate("/invoice", { state: { ...location.state, language } });
 
     };
 

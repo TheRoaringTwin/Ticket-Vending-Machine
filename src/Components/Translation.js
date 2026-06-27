@@ -1,6 +1,7 @@
 const translations = {
     english: {
-      heading: 'Welcome to Station Number 1',
+      heading: 'Welcome to',
+      stationNumber: 'Station Number',
       welcome: 'Welcome to',
       purchaseTicket: 'Purchase Ticket',
       cardTopUp: 'Card Top-Up',
@@ -17,7 +18,6 @@ const translations = {
       totalFare: 'Total Fare',
       continue: 'Continue',
       back: 'Back',
-      // Invoice page translations
       ticketInvoice: 'Ticket Invoice',
       journeyDetails: 'Journey Details',
       from: 'From',
@@ -29,33 +29,30 @@ const translations = {
       selectPaymentMethod: 'Select Payment Method',
       cardPayment: 'Card Payment',
       upiPayment: 'UPI Payment',
+      scanQR: 'Scan the QR Code to Pay',
       totalAmount: 'Total Amount',
       proceedToPayment: 'Proceed to Payment',
       backToCosting: 'Back to Costing',
-      // Card Details page translations
       enterCardDetails: 'Enter Card Details',
       cardNumber: 'Card Number',
       expiryDate: 'Expiry Date',
       cvv: 'CVV',
       proceedPayment: 'Proceed to Payment',
-      // Balance Check page translations
       checkBalance: 'Check Balance',
       balanceEnquiry: 'Balance Enquiry',
       enterCardDetails2: 'Enter your card details to check the available balance',
       checkBalanceBtn: 'Check Balance',
-      // Processing Payment page translations
       processingPayment: 'Processing Payment',
       pleaseWait: 'Please wait, your payment is being processed...',
-      // Booking Successful page translations
+      redirectingIn: 'Redirecting in',
       bookingSuccessful: 'Booking Successful',
       thankyou: 'Thank You for Your Booking!',
       bookingConfirmed: 'Your ticket booking has been confirmed.',
       goHome: 'Go to Home',
-      // Booking Failed page translations
+      printTicket: 'Print Ticket Receipt',
       paymentFailed: 'Payment Failed',
       paymentDenied: 'Your payment was denied. Please try again.',
       tryAgain: 'Try Again',
-      // Progress labels
       home: 'Home',
       stationSelect: 'Station Select',
       journeyType: 'Journey Type',
@@ -63,11 +60,27 @@ const translations = {
       payment: 'Payment',
       ticketPrint: 'Ticket Print',
       balanceDisplay: 'Balance',
+      printingReceipt: 'Please be patient while the receipt is being printed',
+      ticketPrinted: 'Your Ticket Has Been Printed',
+      collectTicket: 'Please collect your ticket',
       enterCardDetailsPayment: 'Enter your card details to continue',
-      fourDigitPin: '4 Digit PIN'
+      fourDigitPin: '4 Digit PIN',
+      station1: 'Station 1',
+      station2: 'Station 2',
+      station3: 'Station 3',
+      station4: 'Station 4',
+      station5: 'Station 5',
+      station6: 'Station 6',
+      station7: 'Station 7',
+      station8: 'Station 8',
+      station9: 'Station 9',
+      sessionExpiring: 'Session Expiring',
+      seconds: 'seconds',
+      clickToContinue: 'Click to continue your session'
     },
     hindi: {
-      heading: 'स्टेशन नंबर 1 में स्वागत है',
+      heading: 'में स्वागत है',
+      stationNumber: 'स्टेशन नंबर',
       welcome: 'स्वागत है',
       purchaseTicket: 'टिकट खरीदें',
       cardTopUp: 'कार्ड टॉप-अप',
@@ -84,7 +97,6 @@ const translations = {
       totalFare: 'कुल किराया',
       continue: 'जारी रखें',
       back: 'पीछे जाएं',
-      // Invoice page translations
       ticketInvoice: 'टिकट इनवॉयस',
       journeyDetails: 'यात्रा विवरण',
       from: 'से',
@@ -96,33 +108,30 @@ const translations = {
       selectPaymentMethod: 'भुगतान विधि चुनें',
       cardPayment: 'कार्ड भुगतान',
       upiPayment: 'यूपीआई भुगतान',
+      scanQR: 'QR कोड को स्कैन करके भुगतान करें',
       totalAmount: 'कुल राशि',
       proceedToPayment: 'भुगतान के लिए आगे बढ़ें',
       backToCosting: 'मूल्य निर्धारण पर वापस जाएं',
-      // Card Details page translations
       enterCardDetails: 'कार्ड विवरण दर्ज करें',
       cardNumber: 'कार्ड नंबर',
       expiryDate: 'समाप्ति तारीख',
       cvv: 'सीवीवी',
       proceedPayment: 'भुगतान के लिए आगे बढ़ें',
-      // Balance Check page translations
       checkBalance: 'शेष राशि जांचें',
       balanceEnquiry: 'शेष राशि पूछताछ',
       enterCardDetails2: 'उपलब्ध शेष राशि जांचने के लिए अपने कार्ड विवरण दर्ज करें',
       checkBalanceBtn: 'शेष राशि जांचें',
-      // Processing Payment page translations
       processingPayment: 'भुगतान प्रसंस्करण',
       pleaseWait: 'कृपया प्रतीक्षा करें, आपका भुगतान प्रसंस्करण किया जा रहा है...',
-      // Booking Successful page translations
+      redirectingIn: 'में रीडायरेक्ट करें',
       bookingSuccessful: 'बुकिंग सफल',
       thankyou: 'आपकी बुकिंग के लिए धन्यवाद!',
       bookingConfirmed: 'आपकी टिकट बुकिंग की पुष्टि हो गई है।',
       goHome: 'होम पर जाएं',
-      // Booking Failed page translations
+      printTicket: 'टिकट रसीद प्रिंट करें',
       paymentFailed: 'भुगतान विफल',
       paymentDenied: 'आपका भुगतान अस्वीकृत कर दिया गया। कृपया पुनः प्रयास करें।',
       tryAgain: 'पुनः प्रयास करें',
-      // Progress labels
       home: 'होम',
       stationSelect: 'स्टेशन चुनें',
       journeyType: 'यात्रा प्रकार',
@@ -130,8 +139,23 @@ const translations = {
       payment: 'भुगतान',
       ticketPrint: 'टिकट प्रिंट',
       balanceDisplay: 'शेष राशि',
+      printingReceipt: 'कृपया धैर्य रखें जबकि रसीद प्रिंट की जा रही है',
+      ticketPrinted: 'आपकी टिकट प्रिंट हो गई है',
+      collectTicket: 'कृपया अपनी टिकट प्राप्त करें',
       enterCardDetailsPayment: 'जारी रखने के लिए अपना कार्ड विवरण दर्ज करें',
-      fourDigitPin: '4 अंकों का PIN'
+      fourDigitPin: '4 अंकों का PIN',
+      station1: 'स्टेशन 1',
+      station2: 'स्टेशन 2',
+      station3: 'स्टेशन 3',
+      station4: 'स्टेशन 4',
+      station5: 'स्टेशन 5',
+      station6: 'स्टेशन 6',
+      station7: 'स्टेशन 7',
+      station8: 'स्टेशन 8',
+      station9: 'स्टेशन 9',
+      sessionExpiring: 'सत्र समाप्त हो रहा है',
+      seconds: 'सेकंड',
+      clickToContinue: 'अपना सत्र जारी रखने के लिए क्लिक करें'
     }
   };
 

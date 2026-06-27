@@ -9,7 +9,7 @@ import { useFlow } from '../Context/FlowContext';
 import '../Styles/Home_Screen.css';
 
 
-const PurchaseBotton = ({onclick, language}) => {
+const PurchaseButton = ({onclick, language}) => {
     const currentText = translations[language];
     return(
           <button className='metro-btn' onClick={onclick}>
@@ -31,12 +31,14 @@ const BalanceCheck  = ({onclick, language}) => {
 
 const WelcomeContainer = ({onPurchaseClick, onBalanceClick, language, currentStation}) => {
     const currentText = translations[language];
-    const heading = `${currentText.welcome} ${currentStation}`;
+    const heading = language === 'hindi'
+      ? `${currentText.stationNumber} ${currentStation.split(' ')[1]} ${currentText.heading}`
+      : `${currentText.heading} ${currentStation}`;
       return(
         <div className='container'>
           <h1 className='home_Heading'>{heading}</h1>
             <div className='button-container'>
-           <PurchaseBotton onclick={onPurchaseClick} language={language}></PurchaseBotton>
+           <PurchaseButton onclick={onPurchaseClick} language={language}></PurchaseButton>
            <BalanceCheck onclick={onBalanceClick} language={language}></BalanceCheck>
           </div>
         </div>
@@ -49,7 +51,6 @@ const Home_Screen = () => {
     const { startTicketFlow, startBalanceFlow, flowType } = useFlow();
     const navigate = useNavigate();
 
-    // Initialize flow on home screen so progress shows
     React.useEffect(() => {
         if (!flowType) {
             startTicketFlow();

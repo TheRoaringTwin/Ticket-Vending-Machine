@@ -13,7 +13,7 @@ function ProcessingPaymentUI({ timeLeft = 5, onBack, language, text }) {
                     {text.pleaseWait}
                 </p>
                 <p className="countdown-text">
-                    Redirecting in {timeLeft}s
+                    {text.redirectingIn} {timeLeft}s
                 </p>
             </div>
         </div>
