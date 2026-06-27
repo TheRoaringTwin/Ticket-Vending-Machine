@@ -44,7 +44,7 @@ function BalanceUI({
                         </h2>
                         <div className="balance-info-row">
                             <span className="balance-label">{text.cardNumber} :</span>
-                            <span className="balance-value">{language === 'hindi' ? convertToHindiNumerals(formatCardNumber(cardNumber)) : formatCardNumber(cardNumber)}</span>
+                            <span className="balance-value">{formatCardNumber(cardNumber)}</span>
                         </div>
                         <div className="balance-info-row">
                             <span className="balance-label">{text.totalAmount} :</span>
