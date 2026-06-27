@@ -12,45 +12,48 @@
 }
 
 .checking-container {
-    width: clamp(280px, 90vw, 650px);
+    width: clamp(260px, 85vw, 480px);
     background: white;
     border-radius: var(--radius-xl);
-    padding: clamp(24px, 5vw, 40px);
+    padding: clamp(20px, 4vw, 32px);
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    gap: clamp(12px, 2.5vh, 18px);
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
 }
 
 .checking-loader {
-    width: clamp(55px, 13vw, 85px);
-    height: clamp(55px, 13vw, 85px);
-    border: clamp(6px, 1.5vw, 9px) solid #dbeafe;
-    border-top: clamp(6px, 1.5vw, 9px) solid #2563eb;
+    width: clamp(50px, 11vw, 75px);
+    height: clamp(50px, 11vw, 75px);
+    border: clamp(5px, 1.3vw, 8px) solid #dbeafe;
+    border-top: clamp(5px, 1.3vw, 8px) solid #2563eb;
     border-radius: 50%;
     animation: spin 1s linear infinite;
+    flex-shrink: 0;
 }
 
 .checking-container h2 {
-    margin-top: clamp(16px, 3vh, 28px);
+    margin: 0;
     color: #1f2937;
-    font-size: clamp(1.3rem, 4.5vw, 2rem);
+    font-size: clamp(1.2rem, 4vw, 1.8rem);
     text-align: center;
     line-height: 1.2;
 }
 
 .checking-container p {
-    margin-top: clamp(8px, 1.5vh, 14px);
+    margin: 0;
     color: #6b7280;
-    font-size: clamp(0.9rem, 2.2vw, 1.1rem);
+    font-size: clamp(0.85rem, 2vw, 1rem);
     text-align: center;
     line-height: 1.5;
 }
 
 .balance-card {
     width: 100%;
-    margin-top: clamp(12px, 2.5vh, 20px);
-    padding: clamp(16px, 4vw, 28px);
+    margin: 0;
+    padding: clamp(12px, 3vw, 20px);
     border-radius: var(--radius-lg);
     background: #f8fafc;
     text-align: center;
@@ -58,21 +61,22 @@
 
 .balance-card p {
     color: #64748b;
-    margin-bottom: clamp(6px, 1.2vh, 10px);
-    font-size: clamp(0.9rem, 2vw, 1.05rem);
+    margin: 0 0 clamp(4px, 1vh, 8px) 0;
+    font-size: clamp(0.8rem, 1.8vw, 0.95rem);
 }
 
 .balance-card h3 {
     color: #111827;
-    font-size: clamp(1.2rem, 3.5vw, 1.6rem);
-    letter-spacing: clamp(1px, 0.5vw, 2px);
+    font-size: clamp(1rem, 3vw, 1.4rem);
+    letter-spacing: clamp(0.5px, 0.3vw, 1px);
     line-height: 1.2;
+    margin: 0;
 }
 
 .balance-card h1 {
     color: #16a34a;
-    font-size: clamp(1.6rem, 5vw, 2.5rem);
-    margin-top: clamp(6px, 1.2vh, 12px);
+    font-size: clamp(1.4rem, 4vw, 2.2rem);
+    margin: clamp(4px, 1vh, 8px) 0 0 0;
     line-height: 1.2;
 }
 

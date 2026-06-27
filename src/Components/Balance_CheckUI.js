@@ -19,13 +19,15 @@ function Balance_CheckUI({
                 <p className="balance-subtitle">
                     {text.enterCardDetails2}
                 </p>
+                <p className="balance-instruction">
+                    {text.placeCardOnMachine}
+                </p>
                 <div className="card-machine-wrapper">
                     <div className="card-machine">
                         <div className="machine-indicator"></div>
                         <div className="tap-zone">
                             <div className="card"></div>
                         </div>
-                        <p className="card-machine-label">Place the card on the machine below</p>
                     </div>
                 </div>
                 <div className="balance-button-group">

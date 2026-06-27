@@ -214,7 +214,7 @@ const StationUI = ({
 
                 <div className='continue-wrapper'>
                     <button className='back-btn' onClick={onBack}>
-                        ← Back
+                        ← {text.back || 'Back'}
                     </button>
                     <button className='continue-btn' onClick={onContinue}>
                         {text.continue}

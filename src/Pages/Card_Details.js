@@ -3,6 +3,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import Navbar from "../Components/Navbar";
 import CardDetailsUI from "../Components/Card_DetailsUI";
 import Background from "../Components/Background";
+import AlertModal from "../Components/AlertModal";
 import translations from "../Components/Translation";
 import { useFlow } from "../Context/FlowContext";
 
@@ -22,15 +23,19 @@ function Card_Details() {
 
     const [cardNumber, setCardNumber] = useState("");
     const [pin, setPin] = useState("");
+    const [alertMessage, setAlertMessage] = useState("");
+    const [isAlertOpen, setIsAlertOpen] = useState(false);
     const paymentData = location.state || {};
 
     const handleContinue = () => {
         if (cardNumber.length !== 16) {
-            alert("Please enter a valid 16 digit card number.");
+            setAlertMessage(text.invalidCardNumber);
+            setIsAlertOpen(true);
             return;
         }
         if (pin.length !== 4) {
-            alert("Please enter a valid 4 digit PIN.");
+            setAlertMessage(text.invalidPin);
+            setIsAlertOpen(true);
             return;
         }
         navigate("/Processing_Payment", {
@@ -61,6 +66,11 @@ function Card_Details() {
                 handleBack={handleBack}
                 language={language}
                 text={text}
+            />
+            <AlertModal
+                message={alertMessage}
+                isOpen={isAlertOpen}
+                onClose={() => setIsAlertOpen(false)}
             />
         </Background>
     );

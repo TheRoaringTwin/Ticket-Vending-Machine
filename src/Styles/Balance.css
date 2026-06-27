@@ -1,7 +1,7 @@
 .balance-page {
     width: 100%;
-    margin-top: clamp(120px, 18vh, 150px);
-    height: calc(100vh - clamp(120px, 18vh, 150px) - 2 * clamp(16px, 3vh, 40px));
+    margin-top: clamp(135px, 19vh, 165px);
+    height: calc(100vh - clamp(135px, 19vh, 165px) - 2 * clamp(16px, 3vh, 40px));
     padding: clamp(16px, 3vh, 40px) clamp(12px, 5vw, 40px);
     display: flex;
     justify-content: center;

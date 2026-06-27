@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import "../Styles/Checking_Balance.css";
+import { convertToHindiNumerals } from "../Utils/hindiConverter";
 
 function Checking_BalanceUI({
 
@@ -26,7 +27,7 @@ function Checking_BalanceUI({
                     {text.pleaseWait}
                 </p>
                 <p style={{fontSize: '18px', marginTop: '15px', opacity: '0.9'}}>
-                    Redirecting in {timeLeft} seconds...
+                    {text.redirectingInSeconds} {language === 'hindi' ? convertToHindiNumerals(timeLeft) : timeLeft} {text.seconds}...
                 </p>
             </div>
         </div>

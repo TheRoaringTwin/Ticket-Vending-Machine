@@ -76,7 +76,14 @@ const translations = {
       station9: 'Station 9',
       sessionExpiring: 'Session Expiring',
       seconds: 'seconds',
-      clickToContinue: 'Click to continue your session'
+      clickToContinue: 'Click to continue your session',
+      checkingBalance: 'Checking Balance',
+      redirectingInSeconds: 'Redirecting in',
+      cardStatus: 'Card Status',
+      active: 'Active',
+      placeCardOnMachine: 'Place the card on the machine below',
+      invalidCardNumber: 'Please enter a valid 16 digit card number.',
+      invalidPin: 'Please enter a valid 4 digit PIN.'
     },
     hindi: {
       heading: 'में स्वागत है',
@@ -155,7 +162,14 @@ const translations = {
       station9: 'स्टेशन 9',
       sessionExpiring: 'सत्र समाप्त हो रहा है',
       seconds: 'सेकंड',
-      clickToContinue: 'अपना सत्र जारी रखने के लिए क्लिक करें'
+      clickToContinue: 'अपना सत्र जारी रखने के लिए क्लिक करें',
+      checkingBalance: 'शेष राशि की जांच की जा रही है',
+      redirectingInSeconds: 'में रीडायरेक्ट करें',
+      cardStatus: 'कार्ड की स्थिति',
+      active: 'सक्रिय',
+      placeCardOnMachine: 'कृपया नीचे दिये गये मशीन पर कार्ड रखें',
+      invalidCardNumber: 'कृपया एक वैध 16 अंकों का कार्ड नंबर दर्ज करें।',
+      invalidPin: 'कृपया एक वैध 4 अंकों का PIN दर्ज करें।'
     }
   };
 

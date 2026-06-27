@@ -1,11 +1,11 @@
 .balance-page {
     width: 100%;
-    margin-top: clamp(120px, 18vh, 150px);
-    height: calc(100vh - clamp(120px, 18vh, 150px) - 2 * clamp(16px, 3vh, 40px));
+    margin-top: clamp(90px, 15vh, 120px);
+    height: calc(100vh - clamp(90px, 15vh, 120px) - 2 * clamp(12px, 2vh, 28px));
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: clamp(16px, 3vh, 40px) clamp(12px, 5vw, 40px);
+    padding: clamp(12px, 2vh, 28px) clamp(12px, 5vw, 40px);
     position: relative;
     z-index: var(--z-content);
     box-sizing: border-box;
@@ -35,6 +35,14 @@
     color: rgba(255, 255, 255, 0.8);
     margin-bottom: clamp(16px, 3vh, 28px);
     font-size: clamp(0.9rem, 2.2vw, 1.1rem);
+}
+
+.balance-instruction {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: clamp(14px, 2.5vh, 24px);
+    font-size: clamp(0.85rem, 2vw, 1rem);
+    line-height: 1.4;
 }
 
 .balance-input-group {
@@ -123,23 +131,23 @@
 
 .card-machine-wrapper {
     width: 100%;
-    height: clamp(280px, 55vh, 420px);
+    height: clamp(240px, 45vh, 340px);
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: clamp(28px, 5vh, 50px);
-    margin-bottom: clamp(20px, 3vh, 32px);
+    margin-top: clamp(18px, 3.5vh, 32px);
+    margin-bottom: clamp(16px, 2.5vh, 24px);
     perspective: 1200px;
     position: relative;
 }
 
 .card-machine {
-    width: clamp(160px, 30vw, 240px);
-    height: clamp(220px, 48vh, 340px);
+    width: clamp(150px, 28vw, 220px);
+    height: clamp(215px, 42vh, 320px);
     background: linear-gradient(180deg, #1f1f1f, #0a0a0a);
     border: clamp(2px, 0.5vw, 4px) solid #333;
-    border-radius: clamp(20px, 5vw, 30px);
-    padding: clamp(14px, 3vw, 22px);
+    border-radius: clamp(18px, 4vw, 26px);
+    padding: clamp(12px, 2.5vw, 18px);
     box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6), inset -4px -4px 12px rgba(0, 0, 0, 0.7), inset 2px 2px 8px rgba(255, 255, 255, 0.08);
     position: relative;
     overflow: visible;
@@ -164,7 +172,7 @@
 
 .tap-zone {
     width: 85%;
-    height: clamp(100px, 26vh, 160px);
+    height: clamp(110px, 28vh, 175px);
     background: linear-gradient(180deg, rgba(100, 150, 200, 0.15), rgba(50, 100, 150, 0.25));
     border: clamp(1.5px, 0.4vw, 2.5px) dashed rgba(100, 150, 200, 0.35);
     border-radius: clamp(12px, 3vw, 18px);
@@ -235,15 +243,6 @@
     95% {
         opacity: 0;
     }
-}
-
-.card-machine-label {
-    position: absolute;
-    bottom: clamp(8px, 1.5vw, 12px);
-    font-size: clamp(0.65rem, 1.3vw, 0.85rem);
-    color: #666;
-    font-weight: 700;
-    letter-spacing: clamp(0.8px, 0.6vw, 1.2px);
 }
 
 .machine-indicator {

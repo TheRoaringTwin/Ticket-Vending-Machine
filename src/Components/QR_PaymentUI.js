@@ -22,7 +22,7 @@ function QRPaymentUI({ onBack, timeLeft, language = 'english', text = {} }) {
                     {timeLeft}
                 </p>
                 <button className="qr-back-btn" onClick={onBack}>
-                    ← Back
+                    ← {text.back || 'Back'}
                 </button>
             </div>
         </div>

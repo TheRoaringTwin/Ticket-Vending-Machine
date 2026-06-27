@@ -77,7 +77,7 @@ const CostingUI = ({
                     className="back-btn"
                     onClick={onBack}
                 >
-                    ← Back
+                    ← {text.back || 'Back'}
                 </button>
                 <button
                     className="continue-btn"
